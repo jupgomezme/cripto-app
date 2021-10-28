@@ -54,6 +54,3 @@ def cesarDecryptionNoKey(plain_text):
                 decrypted_text += letters[new_position]
         decrypted_array.append(decrypted_text)
     return decrypted_array,key_array
-
-result = cesarDecryptionNoKey('KHOOR ZRUOG')
-print(result[0])

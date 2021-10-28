@@ -2,44 +2,48 @@ import random
 
 letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-def vigenereEncryptionWithKey(plain_text,key):
-    encrypted_text = ''
-    count = 0        
+def invmod(a,n):
+  i=1
+  while True:
+    c = n * i + 1;
+    if(c%a==0):
+      c = c/a
+      break;
+    i = i+1
+  return c
+
+def affineEncryptionWithKey(plain_text,key):
+    encrypted_text = ''      
     for i in range(len(plain_text)):
         if plain_text[i]==' ':
             encrypted_text += ' '
         else:
             position = letters.find(plain_text[i])
-            new_position = (position + letters.find(key[count])) % 26
+            new_position = (key[0]*position + key[1]) % 26
             encrypted_text += letters[new_position]
-            count = (count + 1)% len(key)
     return encrypted_text,key
 
-def vigenereEncryptionNoKey(plain_text):
+def affineEncryptionNoKey(plain_text):
     encrypted_text = ''
-    keys = ["PYTHON", "JUMBLE", "EASY", "DIFFICULT", "ANSWER",  "XYLOPHONE" , "ATTACK" , "DEFEND"]
-    key = keys[random.randint(0, len(keys)-1)]
-    count = 0        
+    key = [random.randint(1, 26),random.randint(1, 26)]      
     for i in range(len(plain_text)):
         if plain_text[i]==' ':
             encrypted_text += ' '
         else:
             position = letters.find(plain_text[i])
-            new_position = (position + letters.find(key[count])) % 26
+            new_position = (key[0]*position + key[1]) % 26
             encrypted_text += letters[new_position]
-            count = (count + 1)% len(key)
     return encrypted_text,key
 
-def vigenereDecryptionWithKey(plain_text,key):
+def affineDecryptionWithKey(plain_text,key):
     encrypted_text = plain_text
     decrypted_text = ''
-    count = 0 
     for i in range(len(encrypted_text)):
         if plain_text[i]==' ':
             decrypted_text += ' '
         else:
             position = letters.find(encrypted_text[i])
-            new_position = (position - letters.find(key[count])) % 26
+            new_position = (int(invmod(key[0],26))*(position - key[1])) % 26
             decrypted_text += letters[new_position]
-            count = (count + 1)% len(key)
     return decrypted_text,key
+

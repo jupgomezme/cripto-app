@@ -9,4 +9,4 @@ def printFrequencyTable(plain_text):
     print('Letter   |   Frequency')
     for i in range(len(frequencyTable)):
         print('   '+letters[i]+'     |   '+str(frequencyTable[i]))
-printFrequencyTable('HELLOWORLD')
+    return letters,frequencyTable
