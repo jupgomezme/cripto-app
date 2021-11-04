@@ -21,7 +21,7 @@ def difference(plain_text):
 def breakCesarEncryption(plain_text):
     lowestDifference = math.inf
     encryptionKey = 0
-    for key in range(1,26):
+    for key in range(0,26):
         currentPlainText = cesarDecryptionWithKey(plain_text,key)
         currentDifference = difference(currentPlainText[0])
         if currentDifference < lowestDifference:
