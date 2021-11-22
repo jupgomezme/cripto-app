@@ -16,6 +16,7 @@ api/.idea/
 # Python Environment
 
 api/venv/
+venv/
 
 # Flask stuff:
 instance/
