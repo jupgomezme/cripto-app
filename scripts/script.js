@@ -1,44 +1,10 @@
-
-const cardText = document.getElementById("cardText")
-const submitButton = document.getElementById("submitButton")
-// const clearButton = document.getElementById("clearButton")
-
-const cardTextContent = localStorage.getItem("cardTextContent")
-
-if (cardTextContent) { cardText.innerHTML = cardTextContent }
+const apiEndpoint = "http://localhost:5000";
 
 
-async function postData(url = 'http://localhost:5000', data = {}) {
-  const response = await fetch(url, {
-    method: 'POST',
-    // mode: 'cors',
-    // cache: 'no-cache',
-    // credentials: 'same-origin',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    // redirect: 'follow',
-    // referrerPolicy: 'no-referrer',
-    body: JSON.stringify(data)
-  });
-  return response.json();
-}
 
-// postData('http://localhost:5000',
-//   {
-//     "algorithm": "cesar",
-//     "action": "cipher",
-//     "data": "HELLOWORLD",
-//     "key": 1
-//   })
-//   .then(data => {
-//     console.log(data);
-//   });
-
-
-const onClickForm = () => {
-  const inputTextValue = document.getElementById("inputText").value;
-  const inputKeyValue = document.getElementById("inputKey").value;
+const onClickFormEncrypt = () => {
+  const inputTextValue = document.getElementById("inputTextEncrypt").value;
+  const inputKeyValue = document.getElementById("inputKeyEncrypt").value;
 
   if (!inputTextValue) {
     alert("Please introduce some text!")
@@ -52,7 +18,7 @@ const onClickForm = () => {
     key: parseInt(inputKeyValue)
   }
 
-  fetch("http://localhost:5000", {
+  fetch(apiEndpoint, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
@@ -64,13 +30,14 @@ const onClickForm = () => {
     const { data_processed } = responseJson;
 
     const cardEncryptionText = document.getElementById("cardEncryptionText");
-    const cardKeyText = document.getElementById("cardKeyText");
-    const encryptionResultsDiv = document.getElementById("encryptionResultsDiv");
+    const cardEncryptionKey = document.getElementById("cardEncryptionKey");
 
+  
+    const encryptionResultsDiv = document.getElementById("encryptionResultsDiv");
     encryptionResultsDiv.style.display = "flex";
 
     cardEncryptionText.innerHTML = data_processed[0]
-    cardKeyText.innerHTML = data_processed[1]
+    cardEncryptionKey.innerHTML = data_processed[1]
 
   }).catch((error) => {
     console.log("Error with request to the Api!")
@@ -79,11 +46,57 @@ const onClickForm = () => {
 
 }
 
-const onClickClearButton = () => {
-  localStorage.removeItem("cardTextContent")
-  cardText.innerHTML = ""
+const submitButtonEncrypt = document.getElementById("submitButtonEncrypt")
+submitButtonEncrypt.addEventListener("click", onClickFormEncrypt)
+
+
+
+
+const onClickFormDecrypt = () => {
+  const inputTextValue = document.getElementById("inputTextDecrypt").value;
+  const inputKeyValue = document.getElementById("inputKeyDecrypt").value;
+
+  if (!inputTextValue) {
+    alert("Please introduce the text!")
+    return;
+  }
+
+  if (!inputKeyValue) {
+    alert("Please introduce the key!")
+    return;
+  }
+
+  const data = {
+    algorithm: "cesar",
+    action: "decipher",
+    data: inputTextValue.toUpperCase(),
+    key: parseInt(inputKeyValue)
+  }
+
+  fetch(apiEndpoint, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then((response) => {
+    return response.json()
+  }).then((responseJson) => {
+    const { data_processed } = responseJson;
+
+    const cardDecryptionText = document.getElementById("cardDecryptionText");
+
+    const decryptionResultsDiv = document.getElementById("decryptionResultsDiv");
+    decryptionResultsDiv.style.display = "flex";
+
+    cardDecryptionText.innerHTML = data_processed[0]
+
+  }).catch((error) => {
+    console.log("Error with request to the Api!")
+    console.log(error)
+  })
+
 }
 
-
-submitButton.addEventListener("click", onClickForm)
-// clearButton.addEventListener("click", onClickClearButton)
+const submitButtonDecrypt = document.getElementById("submitButtonDecrypt")
+submitButtonDecrypt.addEventListener("click", onClickFormDecrypt)

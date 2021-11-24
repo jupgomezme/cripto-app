@@ -9,13 +9,47 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
 
-    <title>Hello, world!</title>
+    <title>Cripto App</title>
 </head>
 
 <body>
 
+    <nav class="navbar navbar-expand-lg navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Cripto App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Algorithms
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Displacement</a></li>
+                            <!-- <li>
+                                <hr class="dropdown-divider">
+                            </li> -->
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
+        <div class="row">
+            <h1 class="mt-3 text-center">Displacement Algorithm</h1>
+        </div>
         <div class="row">
             <div class="col card container mt-3">
                 <div class="card-body">
@@ -23,41 +57,121 @@
                     <div class="row">
                         <form id="myForm">
                             <div class="mb-3">
-                                <label for="inputText" class="form-label">Text</label>
-                                <input type="text" class="form-control" id="inputText" aria-describedby="textHelp"
-                                    style="text-transform:uppercase">
-                                <div id="textHelp" class="form-text">Please introduce some text.</div>
+                                <label for="inputTextEncrypt" class="form-label">Text</label>
+                                <input type="text" class="form-control" id="inputTextEncrypt"
+                                    aria-describedby="textHelp" style="text-transform:uppercase">
+                                <div id="textHelp" class="form-text">Please introduce some text to encrypt.</div>
                             </div>
                             <div class="mb-3">
-                                <label for="inputKey" class="form-label">Key</label>
-                                <input type="number" class="form-control" id="inputKey" aria-describedby="textKey">
-                                <div id="textKey" class="form-text">Please introduce some key in Z_26. If you don't, the system automatically will generate one.</div>
+                                <label for="inputKeyEncrypt" class="form-label">Key</label>
+                                <input type="number" class="form-control" id="inputKeyEncrypt"
+                                    aria-describedby="keyHelp">
+                                <div id="keyHelp" class="form-text">Please introduce some key in Z_26. If you don't, the
+                                    system will automatically generate one.</div>
                             </div>
                             <div class="text-center">
 
-                                <button id="submitButton" type="button"
-                                    class="btn btn-primary justify-content-center">Submit</button>
-
+                                <button id="submitButtonEncrypt" type="button"
+                                    class="btn btn-primary justify-content-center">Encrypt</button>
                             </div>
-
                         </form>
                     </div>
-
-
-
                     <div id="encryptionResultsDiv" class="row mt-5" style="display: none;">
                         <hr>
                         <h4 class="card-subtitle mt-2 mb-4 text-center">Results</h4>
-                        <p><b>Encryption:  </b><span id="cardEncryptionText"></span></p>
-                        <p><b>Key Used:  </b><span id="cardKeyText"></span></p>
-                        <!-- <button id="clearButton" type="button" class="btn btn-primary">Clear</button> -->
+                        <p><b>Encryption: </b><span id="cardEncryptionText"></span></p>
+                        <p><b>Key Used: </b><span id="cardEncryptionKey"></span></p>
                     </div>
                 </div>
             </div>
-            <div class="col card container mt-3">Here is the decrypt section</div>
+
+
+            <div class="col card container mt-3">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">Decrypt</h3>
+                    <div class="row">
+                        <form id="myForm">
+                            <div class="mb-3">
+                                <label for="inputTextDecrypt" class="form-label">Text</label>
+                                <input type="text" class="form-control" id="inputTextDecrypt"
+                                    aria-describedby="textHelp" style="text-transform:uppercase">
+                                <div id="textHelp" class="form-text">Please introduce the text to decrypt.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputKeyDecrypt" class="form-label">Key</label>
+                                <input type="number" class="form-control" id="inputKeyDecrypt"
+                                    aria-describedby="keyHelp">
+                                <div id="keyHelp" class="form-text">Please introduce the key in Z_26.</div>
+                            </div>
+                            <div class="text-center">
+
+                                <button id="submitButtonDecrypt" type="button"
+                                    class="btn btn-primary justify-content-center">Decrypt</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="decryptionResultsDiv" class="row mt-5" style="display: none;">
+                        <hr>
+                        <h4 class="card-subtitle mt-2 mb-4 text-center">Results</h4>
+                        <p><b>Decryption: </b><span id="cardDecryptionText"></span></p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Explanation</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">How does this work?</h6>
 
+                    <p class="card-text">
+                    <p><span class="math display">
+
+                            \[\section{Cifrado por desplazamiento}
+
+                            Este criptosistema es uno de los más sencillos, se maneja cómo una cinta transportadora
+                            donde
+                            $\mathcal{P}=\mathcal{C}=\mathcal{K}=\mathbb{Z}{n}$ y para una llave o clave
+                            $k\in\mathbb{Z}{n}$
+                            se tiene que la llave de ciframiento $e(x)=x+k\mod n$ y la llave de desciframiento
+                            $d(x)=x-k\mod
+                            n$. La imagen que sigue muestra la transformación para $k=9$.
+                            \begin{center}
+                            \begin{tabular}{c c c c c c c c c c c c c c c c c c c c c c c c c c}
+                            a &amp; b &amp; c &amp; d &amp; e &amp; f &amp; g &amp; h &amp; i &amp; j &amp; k &amp; l
+                            &amp;
+                            m &amp; n &amp; o &amp; p &amp; q &amp; r &amp; s &amp; t &amp; u &amp; v &amp; w &amp; x
+                            &amp;
+                            y &amp; z\\
+                            r &amp; s &amp; t &amp; u &amp; v &amp; w &amp; x &amp; y &amp; z &amp; a &amp; b &amp; c
+                            &amp;
+                            d &amp; e &amp; f &amp; g &amp; h &amp; i &amp; j &amp; k &amp; l &amp; m &amp; n &amp; o
+                            &amp;
+                            p &amp; q
+                            \end{tabular}
+                            \end{center}
+                            \\\textbf{Ejemplo:} Vamos a cifrar el texto ``Chompiras y Botija&quot;, para todos los
+                            métodos
+                            eliminados los espacios y las mayúsculas para evitar que el mensaje sea demasiado obvio de
+                            descifrar, ahora con el texto en claro ``chopirasybotija &quot; y la clave de descifrado
+                            $k=4$
+                            vemos que la c va a la letra cuatro espacios delante de ella, es decir, la g y este mismo
+                            procedimiento se realiza para todas las letras de nuestro texto en claro.
+                            \begin{center}
+                            \begin{tabular}{c c c c c c c c c c c c c c c c}
+                            c &amp; h &amp; o &amp; m &amp; p &amp; i &amp; r &amp; a &amp; s &amp; y &amp; b &amp; o
+                            &amp;
+                            t &amp; i &amp; j &amp; a\\
+                            g &amp; l &amp; s &amp; q &amp; t &amp; m &amp; v &amp; e &amp; w &amp; c &amp; f &amp; s
+                            &amp;
+                            x &amp; m &amp; n &amp; e
+                            \end{tabular}
+                            \end{center}\]
+
+                        </span></p>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -1,7 +1,7 @@
 from flask import Flask, request
 import json
 import os
-from displacement import cesarDecryptionWithKey, cesarEncryptionWithKey
+from displacement import cesarDecryptionNoKey, cesarDecryptionWithKey, cesarEncryptionNoKey, cesarEncryptionWithKey
 from frequencyTable import frequencyTable
 from flask_cors import CORS
 from dotenv import load_dotenv
@@ -23,19 +23,17 @@ def index():
     data = body["data"]
     key = body["key"]
 
-    if key:
-        encryptionToUse = cesarEncryptionWithKey
-        decryptionToUse = cesarDecryptionWithKey
-    else:
-        encryptionToUse = cesarEncryptionWithKey
-        decryptionToUse = cesarDecryptionWithKey
-
-
     if algorithm == "cesar":
-        if action == "cipher":
-            data_processed = encryptionToUse(data, key)
-        elif action == "decipher":
-            data_processed = decryptionToUse(data, key)
+        if key or str(key) == "0":
+            if action == "cipher":
+                data_processed = cesarEncryptionWithKey(data, key)
+            elif action == "decipher":
+                data_processed = cesarDecryptionWithKey(data, key)
+        else:
+            if action == "cipher":
+                data_processed = cesarEncryptionNoKey(data)
+            elif action == "decipher":
+                data_processed = cesarDecryptionNoKey(data)
 
     return {
         "data_processed": data_processed
