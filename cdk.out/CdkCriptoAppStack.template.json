@@ -90,8 +90,8 @@
       ],
       "Metadata": {
         "aws:cdk:path": "CdkCriptoAppStack/MyFunction/Resource",
-        "aws:asset:path": "/home/jp/Documents/Github/cdk-cripto-app/cdk.out/asset.42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598",
-        "aws:asset:original-path": "/home/jp/Documents/Github/cdk-cripto-app/src",
+        "aws:asset:path": "asset.42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598",
+        "aws:asset:original-path": "/home/jp/Documents/Github/cripto-app/src",
         "aws:asset:is-bundled": true,
         "aws:asset:property": "Code"
       }
