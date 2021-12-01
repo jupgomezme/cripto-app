@@ -4,6 +4,7 @@ from displacement import cesarEncryptionWithKey, cesarDecryptionWithKey, cesarEn
 from substitution import sustitutionEncryptionWithKey, sustitutionEncryptionNoKey, sustitutionDecryptionWithKey
 from affine import affineEncryptionWithKey, affineEncryptionNoKey, affineDecryptionWithKey
 from vigenere import vigenereEncryptionWithKey, vigenereEncryptionWithNoKey, vigenereDecryptionWithKey
+from hill import hillEncryptionWithKey, hillEncryptionNoKey, hillDecryptionWithKey
 
 base_headers = {
     "Content-Type": "application/json",
@@ -63,6 +64,16 @@ def handler(event, context):
         else:
             if action == "cipher":
                 data_processed = vigenereEncryptionWithNoKey(data)
+
+    if algorithm == "hill":
+        if key or str(key) == "0":
+            if action == "cipher":
+                data_processed = hillEncryptionWithKey(data, key)
+            elif action == "decipher":
+                data_processed = hillDecryptionWithKey(data, key)
+        else:
+            if action == "cipher":
+                data_processed = hillEncryptionNoKey(data)
 
     return {
         "statusCode": 200,
