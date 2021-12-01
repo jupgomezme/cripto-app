@@ -19,13 +19,13 @@
           {
             "type": "aws:cdk:asset",
             "data": {
-              "path": "asset.42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598",
-              "id": "42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598",
+              "path": "/home/jp/Documents/Github/cripto-app/cdk.out/asset.dcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1d",
+              "id": "dcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1d",
               "packaging": "zip",
-              "sourceHash": "42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598",
-              "s3BucketParameter": "AssetParameters42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598S3Bucket82308D59",
-              "s3KeyParameter": "AssetParameters42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598S3VersionKeyC4C79EFE",
-              "artifactHashParameter": "AssetParameters42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598ArtifactHashB0C5BC83"
+              "sourceHash": "dcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1d",
+              "s3BucketParameter": "AssetParametersdcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1dS3Bucket425F7BC4",
+              "s3KeyParameter": "AssetParametersdcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1dS3VersionKeyD05703ED",
+              "artifactHashParameter": "AssetParametersdcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1dArtifactHash67C79DDB"
             },
             "trace": [
               "ConstructNode.addMetadata (/home/jp/Documents/Github/cripto-app/node_modules/@aws-cdk/core/lib/construct-compat.ts:252:92)",
@@ -111,10 +111,10 @@
             ]
           }
         ],
-        "/CdkCriptoAppStack/AssetParameters/42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598/S3Bucket": [
+        "/CdkCriptoAppStack/AssetParameters/dcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1d/S3Bucket": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AssetParameters42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598S3Bucket82308D59",
+            "data": "AssetParametersdcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1dS3Bucket425F7BC4",
             "trace": [
               "new FileAssetParameters (/home/jp/Documents/Github/cripto-app/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:16:32)",
               "LegacyStackSynthesizer.doAddFileAsset (/home/jp/Documents/Github/cripto-app/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:144:16)",
@@ -144,10 +144,10 @@
             ]
           }
         ],
-        "/CdkCriptoAppStack/AssetParameters/42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598/S3VersionKey": [
+        "/CdkCriptoAppStack/AssetParameters/dcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1d/S3VersionKey": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AssetParameters42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598S3VersionKeyC4C79EFE",
+            "data": "AssetParametersdcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1dS3VersionKeyD05703ED",
             "trace": [
               "new FileAssetParameters (/home/jp/Documents/Github/cripto-app/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:21:31)",
               "LegacyStackSynthesizer.doAddFileAsset (/home/jp/Documents/Github/cripto-app/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:144:16)",
@@ -177,10 +177,10 @@
             ]
           }
         ],
-        "/CdkCriptoAppStack/AssetParameters/42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598/ArtifactHash": [
+        "/CdkCriptoAppStack/AssetParameters/dcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1d/ArtifactHash": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "AssetParameters42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598ArtifactHashB0C5BC83",
+            "data": "AssetParametersdcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1dArtifactHash67C79DDB",
             "trace": [
               "new FileAssetParameters (/home/jp/Documents/Github/cripto-app/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:26:34)",
               "LegacyStackSynthesizer.doAddFileAsset (/home/jp/Documents/Github/cripto-app/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:144:16)",

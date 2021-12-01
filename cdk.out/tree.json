@@ -113,7 +113,7 @@
                   "aws:cdk:cloudformation:props": {
                     "code": {
                       "s3Bucket": {
-                        "Ref": "AssetParameters42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598S3Bucket82308D59"
+                        "Ref": "AssetParametersdcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1dS3Bucket425F7BC4"
                       },
                       "s3Key": {
                         "Fn::Join": [
@@ -126,7 +126,7 @@
                                   "Fn::Split": [
                                     "||",
                                     {
-                                      "Ref": "AssetParameters42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598S3VersionKeyC4C79EFE"
+                                      "Ref": "AssetParametersdcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1dS3VersionKeyD05703ED"
                                     }
                                   ]
                                 }
@@ -139,7 +139,7 @@
                                   "Fn::Split": [
                                     "||",
                                     {
-                                      "Ref": "AssetParameters42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598S3VersionKeyC4C79EFE"
+                                      "Ref": "AssetParametersdcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1dS3VersionKeyD05703ED"
                                     }
                                   ]
                                 }
@@ -175,13 +175,13 @@
             "id": "AssetParameters",
             "path": "CdkCriptoAppStack/AssetParameters",
             "children": {
-              "42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598": {
-                "id": "42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598",
-                "path": "CdkCriptoAppStack/AssetParameters/42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598",
+              "dcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1d": {
+                "id": "dcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1d",
+                "path": "CdkCriptoAppStack/AssetParameters/dcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1d",
                 "children": {
                   "S3Bucket": {
                     "id": "S3Bucket",
-                    "path": "CdkCriptoAppStack/AssetParameters/42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598/S3Bucket",
+                    "path": "CdkCriptoAppStack/AssetParameters/dcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1d/S3Bucket",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.134.0"
@@ -189,7 +189,7 @@
                   },
                   "S3VersionKey": {
                     "id": "S3VersionKey",
-                    "path": "CdkCriptoAppStack/AssetParameters/42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598/S3VersionKey",
+                    "path": "CdkCriptoAppStack/AssetParameters/dcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1d/S3VersionKey",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.134.0"
@@ -197,7 +197,7 @@
                   },
                   "ArtifactHash": {
                     "id": "ArtifactHash",
-                    "path": "CdkCriptoAppStack/AssetParameters/42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598/ArtifactHash",
+                    "path": "CdkCriptoAppStack/AssetParameters/dcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1d/ArtifactHash",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.134.0"

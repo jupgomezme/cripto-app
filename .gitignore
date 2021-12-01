@@ -39,3 +39,5 @@ pip-delete-this-directory.txt
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+.aws-sam

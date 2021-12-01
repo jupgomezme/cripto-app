@@ -39,7 +39,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": {
-            "Ref": "AssetParameters42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598S3Bucket82308D59"
+            "Ref": "AssetParametersdcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1dS3Bucket425F7BC4"
           },
           "S3Key": {
             "Fn::Join": [
@@ -52,7 +52,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598S3VersionKeyC4C79EFE"
+                          "Ref": "AssetParametersdcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1dS3VersionKeyD05703ED"
                         }
                       ]
                     }
@@ -65,7 +65,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598S3VersionKeyC4C79EFE"
+                          "Ref": "AssetParametersdcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1dS3VersionKeyD05703ED"
                         }
                       ]
                     }
@@ -90,7 +90,7 @@
       ],
       "Metadata": {
         "aws:cdk:path": "CdkCriptoAppStack/MyFunction/Resource",
-        "aws:asset:path": "asset.42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598",
+        "aws:asset:path": "/home/jp/Documents/Github/cripto-app/cdk.out/asset.dcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1d",
         "aws:asset:original-path": "/home/jp/Documents/Github/cripto-app/src",
         "aws:asset:is-bundled": true,
         "aws:asset:property": "Code"
@@ -437,17 +437,17 @@
     }
   },
   "Parameters": {
-    "AssetParameters42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598S3Bucket82308D59": {
+    "AssetParametersdcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1dS3Bucket425F7BC4": {
       "Type": "String",
-      "Description": "S3 bucket for asset \"42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598\""
+      "Description": "S3 bucket for asset \"dcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1d\""
     },
-    "AssetParameters42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598S3VersionKeyC4C79EFE": {
+    "AssetParametersdcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1dS3VersionKeyD05703ED": {
       "Type": "String",
-      "Description": "S3 key for asset version \"42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598\""
+      "Description": "S3 key for asset version \"dcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1d\""
     },
-    "AssetParameters42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598ArtifactHashB0C5BC83": {
+    "AssetParametersdcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1dArtifactHash67C79DDB": {
       "Type": "String",
-      "Description": "Artifact hash for asset \"42ee8345fdcaf74da0cefc575283a555bb94436d25cdf5db66f03c0b6db8d598\""
+      "Description": "Artifact hash for asset \"dcb974f97e6fb1faf76f726a9027ed59e49a2b919edc7b6af6db5eb03ea40c1d\""
     }
   },
   "Outputs": {
