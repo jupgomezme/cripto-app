@@ -52,3 +52,8 @@ package-lock.json
 yarn.lock
 .cdk.staging
 cdk.out
+
+
+*.js
+!jest.config.js
+*.d.ts
