@@ -41,3 +41,14 @@ pip-delete-this-directory.txt
 !.elasticbeanstalk/*.global.yml
 
 .aws-sam
+cdk.out/
+node_modules
+template.yaml
+
+### CDK-specific ignores ###
+*.swp
+cdk.context.json
+package-lock.json
+yarn.lock
+.cdk.staging
+cdk.out
