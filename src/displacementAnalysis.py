@@ -27,4 +27,4 @@ def breakCesarEncryption(plain_text):
         if currentDifference < lowestDifference:
             lowestDifference = currentDifference
             encryptionKey = key
-    return encryptionKey
+    return cesarDecryptionWithKey(plain_text,encryptionKey)

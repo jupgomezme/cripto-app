@@ -25,6 +25,7 @@ def getMatrixDeternminant(m):
     return determinant
 
 def invmod(a,n):
+    print('inverse mod n')
     i=1
     while True:
         c = n * i + 1;
@@ -78,7 +79,7 @@ def hillEncryptionWithKey(plain_text,key):
                 count += 1
         A = sympy.Matrix(matrix_key)
         if A.det() == 0:
-            return 'Invalid key'
+            return 'invalid key'
         else:
             if len(plain_text) % int(math.sqrt(len(key))) != 0:
                 for k in range(len(plain_text) % int(math.sqrt(len(key)))+1):
@@ -118,7 +119,7 @@ def hillEncryptionNoKey(plain_text):
                 count += 1
         A = sympy.Matrix(matrix_key)
         if A.det() == 0:
-            return 'Invalid key'
+            return 'invalid key'
         else:
             if len(plain_text) % int(math.sqrt(len(key))) != 0:
                 for k in range(len(plain_text) % int(math.sqrt(len(key)))+1):
@@ -155,7 +156,7 @@ def hillDecryptionWithKey(plain_text,key):
                 count += 1
         A = sympy.Matrix(getMatrixInverse(matrix_key))
         if A.det() == 0:
-            return 'Invalid key'
+            return 'invalid key'
         else:
             if len(plain_text) % int(math.sqrt(len(key))) != 0:
                 for k in range(len(plain_text) % int(math.sqrt(len(key)))+1):

@@ -22,7 +22,7 @@ Resources:
     Properties:
       Code:
         S3Bucket:
-          Ref: AssetParametersf0bd71f8c49090b8c4f7d56a55265e5f328371ec1ecc4d624300786729041306S3Bucket89D52A95
+          Ref: AssetParameterse51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784cS3Bucket9D6A941E
         S3Key:
           Fn::Join:
             - ""
@@ -30,12 +30,12 @@ Resources:
                   - 0
                   - Fn::Split:
                       - "||"
-                      - Ref: AssetParametersf0bd71f8c49090b8c4f7d56a55265e5f328371ec1ecc4d624300786729041306S3VersionKey79A367C2
+                      - Ref: AssetParameterse51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784cS3VersionKeyC26FA32E
               - Fn::Select:
                   - 1
                   - Fn::Split:
                       - "||"
-                      - Ref: AssetParametersf0bd71f8c49090b8c4f7d56a55265e5f328371ec1ecc4d624300786729041306S3VersionKey79A367C2
+                      - Ref: AssetParameterse51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784cS3VersionKeyC26FA32E
       Role:
         Fn::GetAtt:
           - MyFunctionServiceRole3C357FF2
@@ -48,7 +48,7 @@ Resources:
       - MyFunctionServiceRole3C357FF2
     Metadata:
       aws:cdk:path: CdkCriptoAppStack/MyFunction/Resource
-      aws:asset:path: /home/jp/Documents/Github/cripto-app/cdk.out/asset.f0bd71f8c49090b8c4f7d56a55265e5f328371ec1ecc4d624300786729041306
+      aws:asset:path: /home/jp/Documents/Github/cripto-app/cdk.out/asset.e51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784c
       aws:asset:original-path: /home/jp/Documents/Github/cripto-app/src
       aws:asset:is-bundled: true
       aws:asset:property: Code
@@ -264,15 +264,15 @@ Resources:
       aws:cdk:path: CdkCriptoAppStack/CDKMetadata/Default
     Condition: CDKMetadataAvailable
 Parameters:
-  AssetParametersf0bd71f8c49090b8c4f7d56a55265e5f328371ec1ecc4d624300786729041306S3Bucket89D52A95:
+  AssetParameterse51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784cS3Bucket9D6A941E:
     Type: String
-    Description: S3 bucket for asset "f0bd71f8c49090b8c4f7d56a55265e5f328371ec1ecc4d624300786729041306"
-  AssetParametersf0bd71f8c49090b8c4f7d56a55265e5f328371ec1ecc4d624300786729041306S3VersionKey79A367C2:
+    Description: S3 bucket for asset "e51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784c"
+  AssetParameterse51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784cS3VersionKeyC26FA32E:
     Type: String
-    Description: S3 key for asset version "f0bd71f8c49090b8c4f7d56a55265e5f328371ec1ecc4d624300786729041306"
-  AssetParametersf0bd71f8c49090b8c4f7d56a55265e5f328371ec1ecc4d624300786729041306ArtifactHashD0809875:
+    Description: S3 key for asset version "e51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784c"
+  AssetParameterse51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784cArtifactHashA51A6A31:
     Type: String
-    Description: Artifact hash for asset "f0bd71f8c49090b8c4f7d56a55265e5f328371ec1ecc4d624300786729041306"
+    Description: Artifact hash for asset "e51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784c"
 Outputs:
   GatewayEndpoint4DF49EE0:
     Value:

@@ -6,6 +6,9 @@ from affine import affineEncryptionWithKey, affineEncryptionNoKey, affineDecrypt
 from vigenere import vigenereEncryptionWithKey, vigenereEncryptionWithNoKey, vigenereDecryptionWithKey
 from hill import hillEncryptionWithKey, hillEncryptionNoKey, hillDecryptionWithKey
 
+from displacementAnalysis import breakCesarEncryption
+from vigenereAnalysis import breakVigenereEncryption
+
 base_headers = {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
@@ -75,14 +78,11 @@ def handler(event, context):
             if action == "cipher":
                 data_processed = hillEncryptionNoKey(data)
 
-    if algorithm == "displacementAnalysis"
+    if algorithm == "displacementAnalysis":
+        data_processed = breakCesarEncryption(data)
 
-    if data_processed == "Invalid key":
-        return {
-        "statusCode": 400,
-        "headers": base_headers,
-        "body": json.dumps({"data_processed": data_processed})
-    }
+    if algorithm == "vigenereAnalysis":
+        data_processed = breakVigenereEncryption(data)
 
     return {
         "statusCode": 200,
