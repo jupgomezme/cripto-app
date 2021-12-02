@@ -25,7 +25,6 @@ def getMatrixDeternminant(m):
     return determinant
 
 def invmod(a,n):
-    print('inverse mod n')
     i=1
     while True:
         c = n * i + 1;
@@ -36,7 +35,6 @@ def invmod(a,n):
     return c
 def getMatrixInverse(m):
     determinant = getMatrixDeternminant(m)
-    print(determinant)
     #special case for 2x2 matrix:
     det = pow(determinant, -1, 26)
     if len(m) == 2:
@@ -57,6 +55,17 @@ def getMatrixInverse(m):
             cofactors[r][c] = cofactors[r][c]*det
     return cofactors
 
+def returnMatrixFromKey(key):
+    if math.sqrt(len(key)) == int(math.sqrt(len(key))):
+        matrix_key = []
+        count = 0 
+        for i in range(int(math.sqrt(len(key)))):
+            matrix_key.append([])
+            for j in range(int(math.sqrt(len(key)))):
+                matrix_key[i].append(letters.find(key[count]))
+                count += 1
+        return matrix_key
+
 def hillEncryptionWithKey(plain_text,key):
     encrypted_text = ''
     if math.sqrt(len(key)) == int(math.sqrt(len(key))):
@@ -69,10 +78,10 @@ def hillEncryptionWithKey(plain_text,key):
                 count += 1
         A = sympy.Matrix(matrix_key)
         if A.det() == 0:
-            return 'invalid key'
+            return 'Invalid key'
         else:
             if len(plain_text) % int(math.sqrt(len(key))) != 0:
-                for k in range(len(plain_text) % len(key)):
+                for k in range(len(plain_text) % int(math.sqrt(len(key)))+1):
                     plain_text +='X'
             count_2 = 0
             matrix_text = []
@@ -89,10 +98,11 @@ def hillEncryptionWithKey(plain_text,key):
                 for j in range(len(C[i].T.row(0))):
                     new_position = C[i].T.row(0)[j] % 26
                     encrypted_text += letters[new_position]
-            return encrypted_text,key
+            return encrypted_text,returnMatrixFromKey(key)
 
     else:
         return 'Invalid key'
+
 
 def hillEncryptionNoKey(plain_text):
     encrypted_text = ''
@@ -108,10 +118,10 @@ def hillEncryptionNoKey(plain_text):
                 count += 1
         A = sympy.Matrix(matrix_key)
         if A.det() == 0:
-            return 'invalid key'
+            return 'Invalid key'
         else:
             if len(plain_text) % int(math.sqrt(len(key))) != 0:
-                for k in range(len(plain_text) % len(key)):
+                for k in range(len(plain_text) % int(math.sqrt(len(key)))+1):
                     plain_text +='X'
             count_2 = 0
             matrix_text = []
@@ -128,7 +138,7 @@ def hillEncryptionNoKey(plain_text):
                 for j in range(len(C[i].T.row(0))):
                     new_position = C[i].T.row(0)[j] % 26
                     encrypted_text += letters[new_position]
-            return encrypted_text,key
+            return encrypted_text,returnMatrixFromKey(key)
 
     else:
         return 'Invalid key'
@@ -145,10 +155,10 @@ def hillDecryptionWithKey(plain_text,key):
                 count += 1
         A = sympy.Matrix(getMatrixInverse(matrix_key))
         if A.det() == 0:
-            return 'invalid key'
+            return 'Invalid key'
         else:
             if len(plain_text) % int(math.sqrt(len(key))) != 0:
-                for k in range(len(plain_text) % len(key)):
+                for k in range(len(plain_text) % int(math.sqrt(len(key)))+1):
                     plain_text +='X'
             count_2 = 0
             matrix_text = []
@@ -165,8 +175,7 @@ def hillDecryptionWithKey(plain_text,key):
                 for j in range(len(C[i].T.row(0))):
                     new_position = C[i].T.row(0)[j] % 26
                     encrypted_text += letters[new_position]
-            return encrypted_text,key
+            return encrypted_text,returnMatrixFromKey(key)
 
     else:
         return 'Invalid key'
-

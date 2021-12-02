@@ -75,6 +75,15 @@ def handler(event, context):
             if action == "cipher":
                 data_processed = hillEncryptionNoKey(data)
 
+    if algorithm == "displacementAnalysis"
+
+    if data_processed == "Invalid key":
+        return {
+        "statusCode": 400,
+        "headers": base_headers,
+        "body": json.dumps({"data_processed": data_processed})
+    }
+
     return {
         "statusCode": 200,
         "headers": base_headers,

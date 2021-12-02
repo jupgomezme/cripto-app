@@ -9,6 +9,7 @@ export class CdkCriptoAppStack extends cdk.Stack {
     super(scope, id, props);
 
     const lambdaFunction = new PythonFunction(this, 'MyFunction', {
+      timeout: cdk.Duration.seconds(15),
       functionName: "MainFunction",
       entry: path.join(__dirname, "./../src"), // required
       index: "index.py",
