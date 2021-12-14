@@ -1,4 +1,5 @@
 import json
+from math import e
 import numpy as np
 from displacement import cesarEncryptionWithKey, cesarDecryptionWithKey, cesarEncryptionNoKey, cesarDecryptionNoKey
 from substitution import sustitutionEncryptionWithKey, sustitutionEncryptionNoKey, sustitutionDecryptionWithKey
@@ -19,6 +20,8 @@ base_headers = {
 
 def handler(event, context):
 
+    print("in here")
+
     body = json.loads(event["body"])
 
     algorithm = body["algorithm"]
@@ -38,7 +41,7 @@ def handler(event, context):
             elif action == "decipher":
                 data_processed = cesarDecryptionNoKey(data)
 
-    if algorithm == "substitution":
+    elif algorithm == "substitution":
         if key or str(key) == "0":
             if action == "cipher":
                 data_processed = sustitutionEncryptionWithKey(data, key)
@@ -48,7 +51,7 @@ def handler(event, context):
             if action == "cipher":
                 data_processed = sustitutionEncryptionNoKey(data)
 
-    if algorithm == "affine":
+    elif algorithm == "affine":
         if key or str(key) == "0":
             if action == "cipher":
                 data_processed = affineEncryptionWithKey(data, key)
@@ -58,7 +61,7 @@ def handler(event, context):
             if action == "cipher":
                 data_processed = affineEncryptionNoKey(data)
 
-    if algorithm == "vigenere":
+    elif algorithm == "vigenere":
         if key or str(key) == "0":
             if action == "cipher":
                 data_processed = vigenereEncryptionWithKey(data, key)
@@ -68,7 +71,7 @@ def handler(event, context):
             if action == "cipher":
                 data_processed = vigenereEncryptionWithNoKey(data)
 
-    if algorithm == "hill":
+    elif algorithm == "hill":
         if key or str(key) == "0":
             if action == "cipher":
                 data_processed = hillEncryptionWithKey(data, key)
@@ -78,11 +81,14 @@ def handler(event, context):
             if action == "cipher":
                 data_processed = hillEncryptionNoKey(data)
 
-    if algorithm == "displacementAnalysis":
+    elif algorithm == "displacementAnalysis":
         data_processed = breakCesarEncryption(data)
 
-    if algorithm == "vigenereAnalysis":
+    elif algorithm == "vigenereAnalysis":
         data_processed = breakVigenereEncryption(data)
+
+    else:
+        raise Exception("Wrong algorithm!")
 
     return {
         "statusCode": 200,

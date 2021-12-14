@@ -22,7 +22,7 @@ Resources:
     Properties:
       Code:
         S3Bucket:
-          Ref: AssetParameterse51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784cS3Bucket9D6A941E
+          Ref: AssetParameters20ba99836582096fdb0ff7047ccdb38a82d4b618e439cea730d8f0d18fe032aaS3BucketD0B876A2
         S3Key:
           Fn::Join:
             - ""
@@ -30,26 +30,26 @@ Resources:
                   - 0
                   - Fn::Split:
                       - "||"
-                      - Ref: AssetParameterse51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784cS3VersionKeyC26FA32E
+                      - Ref: AssetParameters20ba99836582096fdb0ff7047ccdb38a82d4b618e439cea730d8f0d18fe032aaS3VersionKeyA248F293
               - Fn::Select:
                   - 1
                   - Fn::Split:
                       - "||"
-                      - Ref: AssetParameterse51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784cS3VersionKeyC26FA32E
+                      - Ref: AssetParameters20ba99836582096fdb0ff7047ccdb38a82d4b618e439cea730d8f0d18fe032aaS3VersionKeyA248F293
       Role:
         Fn::GetAtt:
           - MyFunctionServiceRole3C357FF2
           - Arn
       FunctionName: MainFunction
-      Handler: index.handler
+      Handler: handler.handler
       Runtime: python3.8
       Timeout: 15
     DependsOn:
       - MyFunctionServiceRole3C357FF2
     Metadata:
       aws:cdk:path: CdkCriptoAppStack/MyFunction/Resource
-      aws:asset:path: /home/jp/Documents/Github/cripto-app/cdk.out/asset.e51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784c
-      aws:asset:original-path: /home/jp/Documents/Github/cripto-app/src
+      aws:asset:path: asset.20ba99836582096fdb0ff7047ccdb38a82d4b618e439cea730d8f0d18fe032aa
+      aws:asset:original-path: /Users/juangomez/Documents/jp/cripto-app/src
       aws:asset:is-bundled: true
       aws:asset:property: Code
   Gateway43CB3636:
@@ -259,20 +259,20 @@ Resources:
   CDKMetadata:
     Type: AWS::CDK::Metadata
     Properties:
-      Analytics: v2:deflate64:H4sIAAAAAAAA/01Q0U7DMAz8Ft7TjGqIZ7qhPYGYyheY1JSsTVLFDlMV9d9J0hXtyWfncj5fLev9k3x8eIErVaobdlE5jzJ+MqhBNETICfba9uLoLLEPisXx257Bg0FGn5uPwFMo4xbJBa8w48TvNGtnF5HF4wjmq4NqmvnHWXku5RSsyhShwcjYurH8zHURtK8g7ydZbKReHoIakA9AKFY1GRP9XyT7Qm800bp10j0wXmGW8a3Qkz1uJn1zusFGKRcsi1ecRjcbtOWUuy4nUIytYDuy+HjHdEeXH2/oPoINL8sirOtQXmj3Wz+nzFPkF9K68mmxNijbtf4BYFYDn48BAAA=
+      Analytics: v2:deflate64:H4sIAAAAAAAA/01Q0U7DMAz8lr2nHtUQz3RDPIGYyheE1JSsTVLFDlMV9d9J0hXtyWfnYt9dDfXhER52z/JKleqGfVTOI8RPlmoQDRFygr22vTg5S+yDYnH6tmfppUFGn5uPwFMo4xbJBa8w48TvNGtnF5GXx1Gar05W08w/zsK5lNdgVaYILQ3E1o3lZ66LoEMl832CIiP1cAxqQD5KQrFug5jo/0uyLvRGE61XJ91LxqucIb4VepLHzaRvSjfYKOWCZfGC0+hmg7ZYuetyAkXYCjaTRcc7Jh9dfryh+wg2vCyLsK5DuND+t35KmUO9u5DWlU+HtUFo1/oHoDIriI8BAAA=
     Metadata:
       aws:cdk:path: CdkCriptoAppStack/CDKMetadata/Default
     Condition: CDKMetadataAvailable
 Parameters:
-  AssetParameterse51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784cS3Bucket9D6A941E:
+  AssetParameters20ba99836582096fdb0ff7047ccdb38a82d4b618e439cea730d8f0d18fe032aaS3BucketD0B876A2:
     Type: String
-    Description: S3 bucket for asset "e51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784c"
-  AssetParameterse51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784cS3VersionKeyC26FA32E:
+    Description: S3 bucket for asset "20ba99836582096fdb0ff7047ccdb38a82d4b618e439cea730d8f0d18fe032aa"
+  AssetParameters20ba99836582096fdb0ff7047ccdb38a82d4b618e439cea730d8f0d18fe032aaS3VersionKeyA248F293:
     Type: String
-    Description: S3 key for asset version "e51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784c"
-  AssetParameterse51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784cArtifactHashA51A6A31:
+    Description: S3 key for asset version "20ba99836582096fdb0ff7047ccdb38a82d4b618e439cea730d8f0d18fe032aa"
+  AssetParameters20ba99836582096fdb0ff7047ccdb38a82d4b618e439cea730d8f0d18fe032aaArtifactHash193AA7FC:
     Type: String
-    Description: Artifact hash for asset "e51b28704e7ca4cce1a52b28f0f00a616cbf24829f251777c1dca2a7a1f8784c"
+    Description: Artifact hash for asset "20ba99836582096fdb0ff7047ccdb38a82d4b618e439cea730d8f0d18fe032aa"
 Outputs:
   GatewayEndpoint4DF49EE0:
     Value:
