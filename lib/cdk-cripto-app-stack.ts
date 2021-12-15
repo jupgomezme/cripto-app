@@ -12,7 +12,7 @@ export class CdkCriptoAppStack extends cdk.Stack {
       timeout: cdk.Duration.seconds(15),
       functionName: "MainFunction",
       entry: path.join(__dirname, "./../src"), // required
-      index: "handler.py",
+      index: "index.py",
       handler: 'handler', // optional, defaults to 'handler'
       runtime: lambda.Runtime.PYTHON_3_8, // optional, defaults to lambda.Runtime.PYTHON_3_7
     });

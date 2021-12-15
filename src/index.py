@@ -20,8 +20,6 @@ base_headers = {
 
 def handler(event, context):
 
-    print("in here")
-
     body = json.loads(event["body"])
 
     algorithm = body["algorithm"]
