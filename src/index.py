@@ -1,4 +1,10 @@
 import json
+import subprocess
+
+# import sys
+# import os
+# sys.path.append("/mnt/efs/lib")
+
 from math import e
 import numpy as np
 from displacement import cesarEncryptionWithKey, cesarDecryptionWithKey, cesarEncryptionNoKey, cesarDecryptionNoKey
@@ -17,10 +23,36 @@ base_headers = {
     "Access-Control-Allow-Methods": "OPTIONS,POST,PUT,GET,DELETE"
 }
 
+# EFS_PATH = "/mnt/efs"
+# REQUERIMENTS_FILE_PATH = EFS_PATH + "/requirements.txt"
+
+# file_string = """
+# cycler==0.11.0
+# fonttools==4.28.3
+# imageio==2.13.3
+# kiwisolver==1.3.2
+# matplotlib==3.5.1
+# mpmath==1.2.1
+# networkx==2.6.3
+# numpy==1.21.4
+# packaging==21.3
+# Pillow==8.4.0
+# pyparsing==3.0.6
+# python-dateutil==2.8.2
+# PyWavelets==1.2.0
+# scikit-image==0.19.0
+# scipy==1.7.3
+# six==1.16.0
+# sympy==1.9
+# tifffile==2021.11.2
+# """
 
 def handler(event, context):
-
+    
     body = json.loads(event["body"])
+    # command = body["command"]
+    # command_output = subprocess.getoutput(command)
+
 
     algorithm = body["algorithm"]
     action = body["action"]
