@@ -1,18 +1,6 @@
-import random
-
 import math
 
 import sympy
-
-import numpy as np
-
-from math import gcd
-
-from PIL import Image
-
-from skimage import io
-
-import matplotlib.pyplot as plt
 
 letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 

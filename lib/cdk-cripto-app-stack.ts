@@ -6,7 +6,7 @@ import * as ec2 from '@aws-cdk/aws-ec2';
 import * as efs from '@aws-cdk/aws-efs';
 import * as path from 'path';
 
-export class CdkCriptoAppStack extends cdk.Stack {
+export class CdkCriptoAppBackendStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
@@ -39,9 +39,9 @@ export class CdkCriptoAppStack extends cdk.Stack {
     //   }
     // })
 
-    const lambdaFunction = new PythonFunction(this, 'MyFunction', {
+    const lambdaFunction = new PythonFunction(this, 'MyFunction2', {
       timeout: cdk.Duration.seconds(900),
-      functionName: "MainFunction",
+      functionName: "MainFunction2",
       entry: path.join(__dirname, "./../src"), // required
       index: "index.py",
       handler: 'handler', // optional, defaults to 'handler'
@@ -51,7 +51,7 @@ export class CdkCriptoAppStack extends cdk.Stack {
       memorySize: 128
     });
 
-    const api = new apigw.LambdaRestApi(this, 'Gateway', {
+    const api = new apigw.LambdaRestApi(this, 'Gateway2', {
       handler: lambdaFunction,
       proxy: false,
       deployOptions: {

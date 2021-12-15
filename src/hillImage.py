@@ -1,13 +1,10 @@
 import os.path
 import pickle
 import numpy as np
-from numpy.linalg import inv, det
-from scipy import misc
+from numpy.linalg import det
 import numpy as np
 import matplotlib.pyplot as plt
-import sys
 import pickle
-import scipy.misc
 import numpy as np
 import imageio
 from skimage import io
