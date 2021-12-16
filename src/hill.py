@@ -54,7 +54,7 @@ def hillEncryptionWithKey(plain_text,key):
                     new_position = encrypted_matrix[k].row(i)[j]
                     encrypted_text += letters[new_position]
             
-        return encrypted_text,key
+        return encrypted_text,returnMatrixFromKey(key)
 
     else:
         return 'Invalid key'
@@ -99,7 +99,7 @@ def hillEncryptionNoKey(plain_text):
                     new_position = encrypted_matrix[k].row(i)[j]
                     encrypted_text += letters[new_position]
             
-        return encrypted_text,key
+        return encrypted_text,returnMatrixFromKey(key)
 
     else:
         return 'Invalid key'
@@ -141,7 +141,7 @@ def hillDecryptionWithKey(plain_text,key):
                     new_position = encrypted_matrix[k].row(i)[j]
                     encrypted_text += letters[new_position]
             
-        return encrypted_text,key
+        return encrypted_text,returnMatrixFromKey(key)
 
     else:
         return 'Invalid key'

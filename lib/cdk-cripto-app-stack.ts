@@ -29,9 +29,9 @@ export class CdkCriptoAppBackStack extends cdk.Stack {
     //   }
     // })
 
-    const lambdaFunction = new PythonFunction(this, 'MyFunction', {
+    const lambdaFunction = new PythonFunction(this, 'MyFunction3', {
       timeout: cdk.Duration.seconds(30),
-      functionName: "MainFunction",
+      functionName: "MainFunction3",
       entry: path.join(__dirname, "./../src"), // required
       index: "index.py",
       handler: 'handler', // optional, defaults to 'handler'
@@ -43,7 +43,7 @@ export class CdkCriptoAppBackStack extends cdk.Stack {
       // filesystem: lambda.FileSystem.fromEfsAccessPoint(accessPoint, "/mnt/efs"),
     });
 
-    const api = new apigw.LambdaRestApi(this, 'Gateway2', {
+    const api = new apigw.LambdaRestApi(this, 'Gateway3', {
       handler: lambdaFunction,
       proxy: false,
       deployOptions: {

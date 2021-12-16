@@ -59,3 +59,6 @@ yarn.lock
 *.d.ts
 
 logs.log
+
+template.yaml
+template.yml

@@ -4,8 +4,6 @@ import json
 # import os
 # sys.path.append("/mnt/efs/lib")
 
-from math import e
-import numpy as np
 from displacement import cesarEncryptionWithKey, cesarDecryptionWithKey, cesarEncryptionNoKey, cesarDecryptionNoKey
 from substitution import sustitutionEncryptionWithKey, sustitutionEncryptionNoKey, sustitutionDecryptionWithKey
 from affine import affineEncryptionWithKey, affineEncryptionNoKey, affineDecryptionWithKey
@@ -14,6 +12,7 @@ from hill import hillEncryptionWithKey, hillEncryptionNoKey, hillDecryptionWithK
 
 from displacementAnalysis import breakCesarEncryption
 from vigenereAnalysis import breakVigenereEncryption
+from hillAnalysis import hillAnalysisSizeKnow
 
 base_headers = {
     "Content-Type": "application/json",
@@ -115,6 +114,9 @@ def handler(event, context):
 
     elif algorithm == "vigenereAnalysis":
         data_processed = breakVigenereEncryption(data)
+
+    # elif algorithm == "hillAnalysis":
+    #     data_processed = hillAnalysisSizeKnow(plain_text,encrypted_text,m)
 
     else:
         raise Exception("Wrong algorithm!")
