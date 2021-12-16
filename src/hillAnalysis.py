@@ -1,18 +1,7 @@
-import random
-
 import math
-
+import numpy as np
 import sympy
 
-import numpy as np
-
-from math import gcd
-
-from PIL import Image
-
-from skimage import io
-
-import matplotlib.pyplot as plt
 
 letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
@@ -44,8 +33,9 @@ def hillAnalysisSizeKnow(plain_text,encrypted_text,m):
         B = sympy.Matrix(matrix_plain_text[0:m])
         B = B.inv_mod(26)
         K = (B*A)%26
+        K = np.array(K).astype(np.int64).tolist()
         return K
     except:
         return "invalid size of key"
 
-print(hillAnalysisSizeKnow('FRIDAY','PQCFKU',3))
+# print(hillAnalysisSizeKnow('FRIDAY','PQCFKU',2))

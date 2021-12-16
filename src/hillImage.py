@@ -1,9 +1,10 @@
 import os.path
 import pickle
 import numpy as np
-import matplotlib.pyplot as plt
 import imageio
 from skimage import io
+from numpy.linalg import det
+import matplotlib.pyplot as plt
 
 def transform(np_array, shape):
     return np_array.reshape(shape).astype('uint8')
@@ -164,7 +165,7 @@ def hillImageDecryption(image):
     
     return decoded_image
 
-image_file_name = 'C:/Users/andru/Documents/Universidad/criptografia/lena.jpg'
+image_file_name = './src/lena.jpg'
 img, original_shape = read_image(image_file_name)
 hill = Hill(data=img, file_name=image_file_name)
 lena = hillImageEncryption(img[0])

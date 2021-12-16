@@ -3,7 +3,6 @@ from collections import OrderedDict
 import numpy as np
 
 from displacementAnalysis import *
-from vigenere import vigenereDecryptionWithKey, vigenereEncryptionWithKey
 
 letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 

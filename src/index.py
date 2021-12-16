@@ -115,8 +115,10 @@ def handler(event, context):
     elif algorithm == "vigenereAnalysis":
         data_processed = breakVigenereEncryption(data)
 
-    # elif algorithm == "hillAnalysis":
-    #     data_processed = hillAnalysisSizeKnow(plain_text,encrypted_text,m)
+    elif algorithm == "hillAnalysis":
+        encrypted_for_hill_analysis = body["encrypted_for_hill_analysis"]
+        matrix_size_for_hill_analysis = body["matrix_size_for_hill_analysis"]
+        data_processed = hillAnalysisSizeKnow(data, encrypted_for_hill_analysis, matrix_size_for_hill_analysis)
 
     else:
         raise Exception("Wrong algorithm!")
