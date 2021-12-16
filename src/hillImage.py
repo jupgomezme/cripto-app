@@ -162,6 +162,8 @@ def hillImageDecryption(image):
     # Reshape to the original shape of the image
     decoded_image = decoded_image_vector.reshape(original_shape)
     
+    img_name = image_file_name.split('.')[0]
+    img_extension = image_file_name.split('.')[1]
     decoded_img_name = '{0}-decoded.{1}'.format(img_name, img_extension)
 
     # Save the image
@@ -169,7 +171,7 @@ def hillImageDecryption(image):
     
     return decoded_image
 
-image_file_name = 'lena.jpg'
+image_file_name = 'C:/Users/andru/Documents/Universidad/criptografia/lena.jpg'
 img, original_shape = read_image(image_file_name)
 hill = Hill(data=img, file_name=image_file_name)
 lena = hillImageEncryption(img[0])
