@@ -10,34 +10,26 @@ export class CdkCriptoAppBackendStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // const vpc = new ec2.Vpc(this, "Vpc", {
-    //   maxAzs: 2,
-    //   subnetConfiguration: [
-    //     {
-    //       name: 'public-subnet-1',
-    //       subnetType: ec2.SubnetType.PUBLIC,
-    //       cidrMask: 24,
-    //     },
-    //   ]
-    // });
+    const vpc = new ec2.Vpc(this, "Vpc2", {
+      maxAzs: 2,
+    });
 
-    // const fs = new efs.FileSystem(this, "FIleSystem", {
-    //   vpc,
-    //   removalPolicy: cdk.RemovalPolicy.DESTROY,
-    // });
+    const fs = new efs.FileSystem(this, "FIleSystem2", {
+      vpc,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+    });
 
-    // const accessPoint = fs.addAccessPoint("AccessPoint", {
-    //   createAcl: {
-    //     ownerGid: "1001",
-    //     ownerUid: "1001",
-    //     permissions: "750"
-    //   },
-    //   path: "/efs",
-    //   posixUser: {
-    //     gid: "1001",
-    //     uid: "1001"
-    //   }
-    // })
+    const accessPoint = fs.addAccessPoint("AccessPoint2", {
+      createAcl: {
+        ownerGid: "1001",
+        ownerUid: "1001",
+        permissions: "750"
+      },
+      posixUser: {
+        gid: "1001",
+        uid: "1001"
+      }
+    })
 
     const lambdaFunction = new PythonFunction(this, 'MyFunction2', {
       timeout: cdk.Duration.seconds(900),
@@ -48,7 +40,9 @@ export class CdkCriptoAppBackendStack extends cdk.Stack {
       runtime: lambda.Runtime.PYTHON_3_8, // optional, defaults to lambda.Runtime.PYTHON_3_7
       // vpc,
       // filesystem: lambda.FileSystem.fromEfsAccessPoint(accessPoint, "/mnt/efs"),
-      memorySize: 128
+      memorySize: 1024,
+      vpc,
+      filesystem: lambda.FileSystem.fromEfsAccessPoint(accessPoint, "/mnt/efs"),
     });
 
     const api = new apigw.LambdaRestApi(this, 'Gateway2', {
