@@ -63,6 +63,6 @@ logs.log
 template.yaml
 template.yml
 
-data/*
+src/data/*
 
 .DS_Store
