@@ -33,4 +33,4 @@ def hillAnalysisSizeKnow(plain_text,encrypted_text,m):
     K = (B*A)%26
     return K
 
-print(hillAnalysisSizeKnow('FRIDAY','PQCFKU',2))
+print(hillAnalysisSizeKnow('FRIDAY','AJMIIBJFA',2))

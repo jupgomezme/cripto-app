@@ -61,7 +61,7 @@ def hillEncryptionWithKey(plain_text,key):
 
 def hillEncryptionNoKey(plain_text):
     encrypted_text = ''
-    keys = ["GYBNQKURP" , "AIRPLANES" , "EASY" , "DIFFICULT",  "XYLOPHONE" , "LOOK"]
+    keys = ["GYBNQKURP" , "AIRPLANES", "DIFFICULT", "TEST"]
     key = keys[random.randint(0, len(keys)-1)]
     encrypted_text = ''
     if math.sqrt(len(key)) == int(math.sqrt(len(key))):
