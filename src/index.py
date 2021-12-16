@@ -1,9 +1,5 @@
 import json
 
-# import sys
-# import os
-# sys.path.append("/mnt/efs/lib")
-
 from displacement import cesarEncryptionWithKey, cesarDecryptionWithKey, cesarEncryptionNoKey, cesarDecryptionNoKey
 from substitution import sustitutionEncryptionWithKey, sustitutionEncryptionNoKey, sustitutionDecryptionWithKey
 from affine import affineEncryptionWithKey, affineEncryptionNoKey, affineDecryptionWithKey
@@ -21,41 +17,27 @@ base_headers = {
     "Access-Control-Allow-Methods": "OPTIONS,POST,PUT,GET,DELETE"
 }
 
-# EFS_PATH = "/mnt/efs"
-# REQUERIMENTS_FILE_PATH = EFS_PATH + "/requirements.txt"
-
-# file_string = """
-# cycler==0.11.0
-# fonttools==4.28.3
-# imageio==2.13.3
-# kiwisolver==1.3.2
-# matplotlib==3.5.1
-# mpmath==1.2.1
-# networkx==2.6.3
-# numpy==1.21.4
-# packaging==21.3
-# Pillow==8.4.0
-# pyparsing==3.0.6
-# python-dateutil==2.8.2
-# PyWavelets==1.2.0
-# scikit-image==0.19.0
-# scipy==1.7.3
-# six==1.16.0
-# sympy==1.9
-# tifffile==2021.11.2
-# """
+def full_hill_image_processing(event):
+    print(event)
+    return 0
 
 def handler(event, context):
-    
-    body = json.loads(event["body"])
-    # command = body["command"]
-    # command_output = subprocess.getoutput(command)
 
+    try:
+        body = json.loads(event["body"])
 
-    algorithm = body["algorithm"]
-    action = body["action"]
-    data = body["data"]
-    key = body["key"]
+        algorithm = body["algorithm"]
+        action = body["action"]
+        data = body["data"]
+        key = body["key"]
+    except:
+        body = None
+
+        algorithm = None
+        action = None
+        data = None
+        key = None
+
 
     if algorithm == "displacement":
         if key or str(key) == "0":
@@ -119,6 +101,9 @@ def handler(event, context):
         encrypted_for_hill_analysis = body["encrypted_for_hill_analysis"]
         matrix_size_for_hill_analysis = body["matrix_size_for_hill_analysis"]
         data_processed = hillAnalysisSizeKnow(data, encrypted_for_hill_analysis, matrix_size_for_hill_analysis)
+
+    elif algorithm == "hillImageAnalysis":
+        data_processed = full_hill_image_processing(event)
 
     else:
         raise Exception("Wrong algorithm!")

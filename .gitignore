@@ -64,3 +64,5 @@ template.yaml
 template.yml
 
 lena.jpg.key
+
+data/*

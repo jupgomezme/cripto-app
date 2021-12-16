@@ -1,16 +1,21 @@
-import os.path
 import pickle
 import numpy as np
 import imageio
 from skimage import io
 from numpy.linalg import det
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
+import pathlib
+import os
+
+current_folder_path = str(pathlib.Path(__file__).parent.resolve())
+data_folder_path = current_folder_path + "/data"
 
 def transform(np_array, shape):
     return np_array.reshape(shape).astype('uint8')
 
-def read_image(image_path):
+def read_image(image_file_name):
     """ Read an image and return a one hot vector of the image"""
+    image_path = data_folder_path + "/" +image_file_name
     img = imageio.imread(image_path)
     reshape_value = 1
 
@@ -20,17 +25,17 @@ def read_image(image_path):
     return img.reshape((1, reshape_value)), img.shape
 
 
-def show_image(image):
-    """ Show a single image"""
-    plt.imshow(image)
-    plt.show()
+# def show_image(image):
+#     """ Show a single image"""
+#     plt.imshow(image)
+#     plt.show()
 
 
-def show_images(a, b):
-    """ Show two images side by side"""
-    plot_image = np.concatenate((a, b), axis=1)
-    plt.imshow(plot_image)
-    plt.show()
+# def show_images(a, b):
+#     """ Show two images side by side"""
+#     plot_image = np.concatenate((a, b), axis=1)
+#     plt.imshow(plot_image)
+#     plt.show()
 
 class Hill:
     def __init__(self, data, file_name, key_path=None):
@@ -41,19 +46,19 @@ class Hill:
         self.chunk = self.computer_chunk()
 
         if key_path:
-            print('here')
+            # print('here')
             # Load the key if she exist in the current dir
-            print(key_path)
+            # print(key_path)
             self._key = pickle.load(open( key_path, "rb" ))
-            print('Usigng the args -k ' + key_path)
+            # print('Usigng the args -k ' + key_path)
         else:
             file_name = file_name + '.key'
-            print(file_name)
+            # print(file_name)
             if os.path.isfile(file_name):
-                print('or here')
+                # print('or here')
                 # Load the key if she exist in the current dir
                 self._key = pickle.load(open( file_name, "rb" ))
-                print('Using the ' + file_name)
+                # print('Using the ' + file_name)
             else:
                 # Generate a random key
                 self._key = np.random.random_integers(0, 100, (self.chunk, self.chunk))
@@ -112,7 +117,7 @@ class Hill:
 
         return uncrypted[0]
 
-def hillImageEncryption(image):   
+def hillImageEncryption(image, image_file_name, hill, original_shape):   
     
     # -----------------------------------------------------------------
     # ------------------------- Encoding part -------------------------
@@ -136,17 +141,18 @@ def hillImageEncryption(image):
     encoded_image = encoded_image.astype('uint8')
     
     # Save the image
-    io.imsave(encoded_img_name, encoded_image)
-    pickle.dump(encoded_image_vector, open( encoded_img_name + '.pk', "wb" ))
+    encoded_image_path = data_folder_path + "/" + encoded_img_name
+    io.imsave(encoded_image_path, encoded_image)
+    pickle.dump(encoded_image_vector, open( encoded_image_path + '.pk', "wb" ))
     
-    return encoded_image,encoded_img_name
+    return encoded_image,encoded_image_path
 
 
 # # -----------------------------------------------------------------
 # # ------------------------- Decoding part -------------------------
 # # -----------------------------------------------------------------
 
-def hillImageDecryption(image):
+def hillImageDecryption(image, image_file_name, hill, original_shape):
     
     img_vector = pickle.load(open(image + '.pk', 'rb'))
 
@@ -161,12 +167,17 @@ def hillImageDecryption(image):
     decoded_img_name = '{0}-decoded.{1}'.format(img_name, img_extension)
 
     # Save the image
-    io.imsave(decoded_img_name, decoded_image)
+    decoded_image_path = data_folder_path + "/" + decoded_img_name
+    io.imsave(decoded_image_path, decoded_image)
     
     return decoded_image
 
-image_file_name = './src/lena.jpg'
-img, original_shape = read_image(image_file_name)
-hill = Hill(data=img, file_name=image_file_name)
-lena = hillImageEncryption(img[0])
-lena_2 = hillImageDecryption(lena[1])
+
+def finalHillImage(image_file_name):
+    img, original_shape = read_image(image_file_name)
+    hill = Hill(data=img, file_name=image_file_name)
+    imgEncrypted = hillImageEncryption(img[0], image_file_name, hill, original_shape)
+    imgDecrypted = hillImageDecryption(imgEncrypted[1], image_file_name, hill, original_shape)
+    
+
+finalHillImage("lena.jpg")

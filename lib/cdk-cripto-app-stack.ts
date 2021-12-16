@@ -38,7 +38,7 @@ export class CdkCriptoAppBackStack extends cdk.Stack {
       runtime: lambda.Runtime.PYTHON_3_8, // optional, defaults to lambda.Runtime.PYTHON_3_7
       // vpc,
       // filesystem: lambda.FileSystem.fromEfsAccessPoint(accessPoint, "/mnt/efs"),
-      memorySize: 128,
+      memorySize: 1024,
       // vpc,
       // filesystem: lambda.FileSystem.fromEfsAccessPoint(accessPoint, "/mnt/efs"),
     });
