@@ -63,6 +63,6 @@ logs.log
 template.yaml
 template.yml
 
-lena.jpg.key
-
 data/*
+
+.DS_Store
