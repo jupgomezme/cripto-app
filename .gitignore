@@ -66,3 +66,5 @@ template.yml
 src/data/*
 
 .DS_Store
+
+src/local_data/*

@@ -1,7 +1,6 @@
 import pickle
 import numpy as np
 import imageio
-from skimage import io
 from numpy.linalg import det
 # import matplotlib.pyplot as plt
 import pathlib
@@ -15,8 +14,9 @@ def transform(np_array, shape):
 
 def read_image(image_file_name):
     """ Read an image and return a one hot vector of the image"""
-    image_path = data_folder_path + "/" +image_file_name
-    img = imageio.imread(image_path)
+    image_file_name = data_folder_path + "/" +image_file_name
+    img = imageio.imread(image_file_name)
+    print(img.shape)
     reshape_value = 1
 
     for i in img.shape:
@@ -39,6 +39,7 @@ def read_image(image_file_name):
 
 class Hill:
     def __init__(self, data, file_name, key_path=None):
+        file_name = data_folder_path + "/" + file_name
 
         self.data = data
 
@@ -142,7 +143,7 @@ def hillImageEncryption(image, image_file_name, hill, original_shape):
     
     # Save the image
     encoded_image_path = data_folder_path + "/" + encoded_img_name
-    io.imsave(encoded_image_path, encoded_image)
+    imageio.imwrite(encoded_image_path, encoded_image)
     pickle.dump(encoded_image_vector, open( encoded_image_path + '.pk', "wb" ))
     
     return encoded_image,encoded_image_path
@@ -168,7 +169,7 @@ def hillImageDecryption(image, image_file_name, hill, original_shape):
 
     # Save the image
     decoded_image_path = data_folder_path + "/" + decoded_img_name
-    io.imsave(decoded_image_path, decoded_image)
+    imageio.imwrite(decoded_image_path, decoded_image)
     
     return decoded_image
 
@@ -178,6 +179,6 @@ def finalHillImage(image_file_name):
     hill = Hill(data=img, file_name=image_file_name)
     imgEncrypted = hillImageEncryption(img[0], image_file_name, hill, original_shape)
     imgDecrypted = hillImageDecryption(imgEncrypted[1], image_file_name, hill, original_shape)
-    
+
 
 finalHillImage("lena.jpg")

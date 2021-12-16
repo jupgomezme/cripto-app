@@ -10,6 +10,9 @@ from displacementAnalysis import breakCesarEncryption
 from vigenereAnalysis import breakVigenereEncryption
 from hillAnalysis import hillAnalysisSizeKnow
 
+from requests_toolbelt.multipart import decoder
+
+
 base_headers = {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
@@ -17,26 +20,25 @@ base_headers = {
     "Access-Control-Allow-Methods": "OPTIONS,POST,PUT,GET,DELETE"
 }
 
-def full_hill_image_processing(event):
-    print(event)
+def full_hill_image_processing(body, content_type):
+    body_decoded = decoder.MultipartDecoder(body, content_type)
+    print(body_decoded)
     return 0
 
 def handler(event, context):
 
-    try:
-        body = json.loads(event["body"])
+    body = event["body"]
+    content_type = event["Content-Type"]
+
+    if "multipart/form-data" in content_type:
+        algorithm = "hillImageAnalysis"
+    else:
+        body = json.loads(body)
 
         algorithm = body["algorithm"]
         action = body["action"]
         data = body["data"]
         key = body["key"]
-    except:
-        body = None
-
-        algorithm = None
-        action = None
-        data = None
-        key = None
 
 
     if algorithm == "displacement":
@@ -103,7 +105,7 @@ def handler(event, context):
         data_processed = hillAnalysisSizeKnow(data, encrypted_for_hill_analysis, matrix_size_for_hill_analysis)
 
     elif algorithm == "hillImageAnalysis":
-        data_processed = full_hill_image_processing(event)
+        data_processed = full_hill_image_processing(body, content_type)
 
     else:
         raise Exception("Wrong algorithm!")
