@@ -21,14 +21,19 @@ base_headers = {
 }
 
 def full_hill_image_processing(body, content_type):
+    body = body.encode()
     body_decoded = decoder.MultipartDecoder(body, content_type)
-    print(body_decoded)
+    print(body_decoded.parts[0])
     return 0
 
 def handler(event, context):
 
     body = event["body"]
-    content_type = event["Content-Type"]
+
+    try:
+        content_type = event["headers"]["Content-Type"]
+    except:
+        content_type = event["headers"]["content-type"]
 
     if "multipart/form-data" in content_type:
         algorithm = "hillImageAnalysis"
