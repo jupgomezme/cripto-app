@@ -46,21 +46,6 @@ cdk.out/
 node_modules
 template.yaml
 
-### CDK-specific ignores ###
-*.swp
-cdk.context.json
-package-lock.json
-yarn.lock
-.cdk.staging
-
-
-*.js
-!jest.config.js
-*.d.ts
-
-logs.log
-template.yml
-
 backend/data/*
 
 .DS_Store
