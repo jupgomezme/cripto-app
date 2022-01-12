@@ -2,6 +2,7 @@ from typing import Optional
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+import subprocess
 
 from displacement import cesarEncryptionWithKey, cesarDecryptionWithKey, cesarEncryptionNoKey, cesarDecryptionNoKey
 from substitution import sustitutionEncryptionWithKey, sustitutionEncryptionNoKey, sustitutionDecryptionWithKey
@@ -116,3 +117,11 @@ def read_root(item: Item):
         }
 
     return data_processed
+
+
+@app.get("/update")
+def read_root():
+    with open('./../ci_cd.sh', 'rb') as file:
+        script = file.read()
+    rc = subprocess.call(script, shell=True)
+    return rc
