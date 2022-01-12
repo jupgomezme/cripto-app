@@ -1,3 +1,3 @@
-# crypto-app-frontend
+# Crypto App
 
 Repo for crypto app
