@@ -1,7 +1,7 @@
 # Jetbrains
 
 .idea/
-api/.idea/
+backend/.idea/
 
 # VSCode
 .vscode/*
@@ -15,7 +15,7 @@ api/.idea/
 
 # Python Environment
 
-api/venv/
+backend/venv/
 venv/
 
 # Flask stuff:
@@ -25,8 +25,8 @@ instance/
 # PyBuilder
 .pybuilder/
 target/
-src/__pycache__/
-
+backend/__pycache__/
+__pycache__
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
@@ -59,12 +59,10 @@ yarn.lock
 *.d.ts
 
 logs.log
-
-template.yaml
 template.yml
 
-src/data/*
+backend/data/*
 
 .DS_Store
 
-src/local_data/*
+backend/local_data/*

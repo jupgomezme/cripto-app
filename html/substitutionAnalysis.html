@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
+
+    <title>Crypto App</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">Crypto App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Algorithms
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="displacement.html">Displacement</a></li>
+                            <li><a class="dropdown-item" href="substitution.html">Substitution</a></li>
+                            <li><a class="dropdown-item" href="permutation.html">Permutation</a></li>
+                            <li><a class="dropdown-item" href="affine.html">Affine</a></li>
+                            <li><a class="dropdown-item" href="vigenere.html">Vigenere</a></li>
+                            <li><a class="dropdown-item" href="hill.html">Hill</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="displacementAnalysis.html">Displacement Analysis</a></li>
+                            <li><a class="dropdown-item" href="substitutionAnalysis.html">Substitution Analysis</a></li>
+                            <li><a class="dropdown-item" href="vigenereAnalysis.html">Vigenere Analysis</a></li>
+                            <li><a class="dropdown-item" href="affineAnalysis.html">Affine Analysis</a></li>
+                            <li><a class="dropdown-item" href="hillAnalysis.html">Hill Analysis</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="aboutUs.html" aria-current="page">About us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col card container mt-3">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">Substitution Analysis</h3>
+                    <div class="row d-flex justify-content-center">
+                        <form id="myForm" class="w-50">
+                            <div class="mb-3">
+                                <label for="inputTextEncrypt" class="form-label">Text</label>
+                                <input type="text" class="form-control" id="inputTextEncrypt"
+                                    aria-describedby="textHelp" style="text-transform:uppercase" value="ZPJDIVUEEMFJ WH HANDFLR" disabled>
+                                <div id="textHelp" class="form-text">This is an example of a text encrypted with vigenere algorithm.</div>
+                            </div>
+                            <div class="text-center">
+                                <button id="submitButtonEncrypt" type="button"
+                                    class="btn btn-primary justify-content-center">Analyze</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="encryptionResultsDiv" class="row mt-5" style="display: none;">
+                        <hr>
+                        <h4 class="card-subtitle mt-2 mb-4 text-center">Results</h4>
+                        <p><b>Encryption: </b><span id="cardEncryptionText">CRYPTOGRAPHY IS AMAZING</span></p>
+                        <p><b>Key: </b><span id="cardEncryptionKey">ATTACK</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="card container">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        How does it work?
+                    </h5>
+                    <p>This cryptanalysis is a bit long and in it is very important in addition to the assistance of programs intuition and human analysis, for texts not too long is a very interesting and fun task, let’s decipher the text “Y J U B J N W Q F D E Y J V F F R L C V Q U F B V U K B U Q N Y J U Q N Y V B F N W U D K C G W U Z U N C U P Y D Y J D F U H J D J N Z U Y J U B D R W N M U Y D P U C Z U V K Y D V Y B N W C E W V U P W V B J M N R F F". First we must do the frequency analysis of each of the letters and when this information is not enough we do the analysis of the most frequent digrams and trigrams in English.</p>
+<ul>
+<li><p>Y J <span style="color: blue">U</span> B J N W Q F D E Y J V F F R L C V Q <span style="color: blue">U</span> F B V <span style="color: blue">U</span> K B <span style="color: blue">U</span> Q N Y J <span style="color: blue">U</span> Q N Y V B F N W <span style="color: blue">U</span> D K C G W <span style="color: blue">U</span> Z <span style="color: blue">U</span> N C <span style="color: blue">U</span> P Y D Y J D F <span style="color: blue">U</span> H J D J N Z <span style="color: blue">U</span> Y J <span style="color: blue">U</span> B D R W N M <span style="color: blue">U</span> Y D P <span style="color: blue">U</span> C Z <span style="color: blue">U</span> V K Y D V Y B N W C E W V <span style="color: blue">U</span> P W V B J M N R F F</p></li>
+<li><p><span style="color: orange">Y</span> J <span style="color: blue">U</span> B J N W Q F D E <span style="color: orange">Y</span> J V F F R L C V Q <span style="color: blue">U</span> F B V <span style="color: blue">U</span> K B <span style="color: blue">U</span> Q N <span style="color: orange">Y</span> J <span style="color: blue">U</span> Q N <span style="color: orange">Y</span> V B F N W <span style="color: blue">U</span> D K C G W <span style="color: blue">U</span> Z <span style="color: blue">U</span> N C <span style="color: blue">U</span> P <span style="color: orange">Y</span> D <span style="color: orange">Y</span> J D F <span style="color: blue">U</span> H J D J N Z <span style="color: blue">U</span> <span style="color: orange">Y</span> J <span style="color: blue">U</span> B D R W N M <span style="color: blue">U</span> <span style="color: orange">Y</span> D P <span style="color: blue">U</span> C Z <span style="color: blue">U</span> V K <span style="color: orange">Y</span> D V <span style="color: orange">Y</span> B N W C E W V <span style="color: blue">U</span> P W V B J M N R F F</p></li>
+<li><p><span style="color: orange">Y</span> J <span style="color: blue">U</span> B J <span style="color: magenta">N</span> W Q F D E <span style="color: orange">Y</span> J V F F R L C V Q <span style="color: blue">U</span> F B V <span style="color: blue">U</span> K B <span style="color: blue">U</span> Q <span style="color: magenta">N</span> <span style="color: orange">Y</span> J <span style="color: blue">U</span> Q <span style="color: magenta">N</span> <span style="color: orange">Y</span> V B F <span style="color: magenta">N</span> W <span style="color: blue">U</span> D K C G W <span style="color: blue">U</span> Z <span style="color: blue">U</span> <span style="color: magenta">N</span> C <span style="color: blue">U</span> P <span style="color: orange">Y</span> D <span style="color: orange">Y</span> J D F <span style="color: blue">U</span> H J D J <span style="color: magenta">N</span> Z <span style="color: blue">U</span> <span style="color: orange">Y</span> J <span style="color: blue">U</span> B D R W <span style="color: magenta">N</span> M <span style="color: blue">U</span> <span style="color: orange">Y</span> D P <span style="color: blue">U</span> C Z <span style="color: blue">U</span> V K <span style="color: orange">Y</span> D V <span style="color: orange">Y</span> B <span style="color: magenta">N</span> W C E W V <span style="color: blue">U</span> P W V B J M <span style="color: magenta">N</span> R F F</p></li>
+<li><p><span style="color: orange">Y</span> J <span style="color: blue">U</span> B J <span style="color: magenta">N</span> W Q <span style="color: cyan">F</span> D E <span style="color: orange">Y</span> J V <span style="color: cyan">F</span> <span style="color: cyan">F</span> R L C V Q <span style="color: blue">U</span> <span style="color: cyan">F</span> B V <span style="color: blue">U</span> K B <span style="color: blue">U</span> Q <span style="color: magenta">N</span> <span style="color: orange">Y</span> J <span style="color: blue">U</span> Q <span style="color: magenta">N</span> <span style="color: orange">Y</span> V B <span style="color: cyan">F</span> <span style="color: magenta">N</span> W <span style="color: blue">U</span> D K C G W <span style="color: blue">U</span> Z <span style="color: blue">U</span> <span style="color: magenta">N</span> C <span style="color: blue">U</span> P <span style="color: orange">Y</span> D <span style="color: orange">Y</span> J D <span style="color: cyan">F</span> <span style="color: blue">U</span> H J D J <span style="color: magenta">N</span> Z <span style="color: blue">U</span> <span style="color: orange">Y</span> J <span style="color: blue">U</span> B D R W <span style="color: magenta">N</span> M <span style="color: blue">U</span> <span style="color: orange">Y</span> D P <span style="color: blue">U</span> C Z <span style="color: blue">U</span> V K <span style="color: orange">Y</span> D V <span style="color: orange">Y</span> B <span style="color: magenta">N</span> W C E W V <span style="color: blue">U</span> P W V B J M <span style="color: magenta">N</span> R <span style="color: cyan">F</span> <span style="color: cyan">F</span></p></li>
+<li><p><span style="color: orange">Y</span> <span style="color: green">J</span> <span style="color: blue">U</span> B <span style="color: green">J</span> <span style="color: magenta">N</span> W Q <span style="color: cyan">F</span> D E <span style="color: orange">Y</span> <span style="color: green">J</span> V <span style="color: cyan">F</span> <span style="color: cyan">F</span> R L C V Q <span style="color: blue">U</span> <span style="color: cyan">F</span> B V <span style="color: blue">U</span> K B <span style="color: blue">U</span> Q <span style="color: magenta">N</span> <span style="color: orange">Y</span> <span style="color: green">J</span> <span style="color: blue">U</span> Q <span style="color: magenta">N</span> <span style="color: orange">Y</span> V B <span style="color: cyan">F</span> <span style="color: magenta">N</span> W <span style="color: blue">U</span> D K C G W <span style="color: blue">U</span> Z <span style="color: blue">U</span> <span style="color: magenta">N</span> C <span style="color: blue">U</span> P <span style="color: orange">Y</span> D <span style="color: orange">Y</span> <span style="color: green">J</span> D <span style="color: cyan">F</span> <span style="color: blue">U</span> H <span style="color: green">J</span> D <span style="color: green">J</span> <span style="color: magenta">N</span> Z <span style="color: blue">U</span> <span style="color: orange">Y</span> <span style="color: green">J</span> <span style="color: blue">U</span> B D R W <span style="color: magenta">N</span> M <span style="color: blue">U</span> <span style="color: orange">Y</span> D P <span style="color: blue">U</span> C Z <span style="color: blue">U</span> V K <span style="color: orange">Y</span> D V <span style="color: orange">Y</span> B <span style="color: magenta">N</span> W C E W V <span style="color: blue">U</span> P W V B <span style="color: green">J</span> M <span style="color: magenta">N</span> R <span style="color: cyan">F</span> <span style="color: cyan">F</span></p></li>
+<li><p><span style="color: orange">Y</span> <span style="color: green">J</span> <span style="color: blue">U</span> <span style="color: red">B</span> <span style="color: green">J</span> <span style="color: magenta">N</span> W Q <span style="color: cyan">F</span> D E <span style="color: orange">Y</span> <span style="color: green">J</span> V <span style="color: cyan">F</span> <span style="color: cyan">F</span> R L C V Q <span style="color: blue">U</span> <span style="color: cyan">F</span> <span style="color: red">B</span> V <span style="color: blue">U</span> K <span style="color: red">B</span> <span style="color: blue">U</span> Q <span style="color: magenta">N</span> <span style="color: orange">Y</span> <span style="color: green">J</span> <span style="color: blue">U</span> Q <span style="color: magenta">N</span> <span style="color: orange">Y</span> V <span style="color: red">B</span> <span style="color: cyan">F</span> <span style="color: magenta">N</span> W <span style="color: blue">U</span> D K C G W <span style="color: blue">U</span> Z <span style="color: blue">U</span> <span style="color: magenta">N</span> C <span style="color: blue">U</span> P <span style="color: orange">Y</span> D <span style="color: orange">Y</span> <span style="color: green">J</span> D <span style="color: cyan">F</span> <span style="color: blue">U</span> H <span style="color: green">J</span> D <span style="color: green">J</span> <span style="color: magenta">N</span> Z <span style="color: blue">U</span> <span style="color: orange">Y</span> <span style="color: green">J</span> <span style="color: blue">U</span> <span style="color: red">B</span> D R W <span style="color: magenta">N</span> M <span style="color: blue">U</span> <span style="color: orange">Y</span> D P <span style="color: blue">U</span> C Z <span style="color: blue">U</span> V K <span style="color: orange">Y</span> D V <span style="color: orange">Y</span> <span style="color: red">B</span> <span style="color: magenta">N</span> W C E W V <span style="color: blue">U</span> P W V <span style="color: red">B</span> <span style="color: green">J</span> M <span style="color: magenta">N</span> R <span style="color: cyan">F</span> <span style="color: cyan">F</span></p></li>
+<li><p><span style="color: orange">Y</span> <span style="color: green">J</span> <span style="color: blue">U</span> <span style="color: red">B</span> <span style="color: green">J</span> <span style="color: magenta">N</span> W Q <span style="color: cyan">F</span> <span style="color: brown">D</span> E <span style="color: orange">Y</span> <span style="color: green">J</span> V <span style="color: cyan">F</span> <span style="color: cyan">F</span> R L C V Q <span style="color: blue">U</span> <span style="color: cyan">F</span> <span style="color: red">B</span> V <span style="color: blue">U</span> K <span style="color: red">B</span> <span style="color: blue">U</span> Q <span style="color: magenta">N</span> <span style="color: orange">Y</span> <span style="color: green">J</span> <span style="color: blue">U</span> Q <span style="color: magenta">N</span> <span style="color: orange">Y</span> V <span style="color: red">B</span> <span style="color: cyan">F</span> <span style="color: magenta">N</span> W <span style="color: blue">U</span> <span style="color: brown">D</span> K C G W <span style="color: blue">U</span> Z <span style="color: blue">U</span> <span style="color: magenta">N</span> C <span style="color: blue">U</span> P <span style="color: orange">Y</span> <span style="color: brown">D</span> <span style="color: orange">Y</span> <span style="color: green">J</span> <span style="color: brown">D</span> <span style="color: cyan">F</span> <span style="color: blue">U</span> H <span style="color: green">J</span> <span style="color: brown">D</span> <span style="color: green">J</span> <span style="color: magenta">N</span> Z <span style="color: blue">U</span> <span style="color: orange">Y</span> <span style="color: green">J</span> <span style="color: blue">U</span> <span style="color: red">B</span> <span style="color: brown">D</span> R W <span style="color: magenta">N</span> M <span style="color: blue">U</span> <span style="color: orange">Y</span> <span style="color: brown">D</span> P <span style="color: blue">U</span> C Z <span style="color: blue">U</span> V K <span style="color: orange">Y</span> <span style="color: brown">D</span> V <span style="color: orange">Y</span> <span style="color: red">B</span> <span style="color: magenta">N</span> W C E W V <span style="color: blue">U</span> P W V <span style="color: red">B</span> <span style="color: green">J</span> M <span style="color: magenta">N</span> R <span style="color: cyan">F</span> <span style="color: cyan">F</span></p></li>
+<li><p><span style="color: orange">Y</span> <span style="color: green">J</span> <span style="color: blue">U</span> <span style="color: red">B</span> <span style="color: green">J</span> <span style="color: magenta">N</span> W Q <span style="color: cyan">F</span> <span style="color: brown">D</span> E <span style="color: orange">Y</span> <span style="color: green">J</span> <span style="color: purple">V</span> <span style="color: cyan">F</span> <span style="color: cyan">F</span> R L C <span style="color: purple">V</span> Q <span style="color: blue">U</span> <span style="color: cyan">F</span> <span style="color: red">B</span> <span style="color: purple">V</span> <span style="color: blue">U</span> K <span style="color: red">B</span> <span style="color: blue">U</span> Q <span style="color: magenta">N</span> <span style="color: orange">Y</span> <span style="color: green">J</span> <span style="color: blue">U</span> Q <span style="color: magenta">N</span> <span style="color: orange">Y</span> <span style="color: purple">V</span> <span style="color: red">B</span> <span style="color: cyan">F</span> <span style="color: magenta">N</span> W <span style="color: blue">U</span> <span style="color: brown">D</span> K C G W <span style="color: blue">U</span> Z <span style="color: blue">U</span> <span style="color: magenta">N</span> C <span style="color: blue">U</span> P <span style="color: orange">Y</span> <span style="color: brown">D</span> <span style="color: orange">Y</span> <span style="color: green">J</span> <span style="color: brown">D</span> <span style="color: cyan">F</span> <span style="color: blue">U</span> H <span style="color: green">J</span> <span style="color: brown">D</span> <span style="color: green">J</span> <span style="color: magenta">N</span> Z <span style="color: blue">U</span> <span style="color: orange">Y</span> <span style="color: green">J</span> <span style="color: blue">U</span> <span style="color: red">B</span> <span style="color: brown">D</span> R W <span style="color: magenta">N</span> M <span style="color: blue">U</span> <span style="color: orange">Y</span> <span style="color: brown">D</span> P <span style="color: blue">U</span> C Z <span style="color: blue">U</span> <span style="color: purple">V</span> K <span style="color: orange">Y</span> <span style="color: brown">D</span> <span style="color: purple">V</span> <span style="color: orange">Y</span> <span style="color: red">B</span> <span style="color: magenta">N</span> W C E W <span style="color: purple">V</span> <span style="color: blue">U</span> P W <span style="color: purple">V</span> <span style="color: red">B</span> <span style="color: green">J</span> M <span style="color: magenta">N</span> R <span style="color: cyan">F</span> <span style="color: cyan">F</span></p></li>
+</ul>
+<div class="center">
+<table class="table table-bordered">
+<tbody>    
+<tr class="even">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">N</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">O</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">P</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">Q</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">U</td>
+<td style="text-align: center;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">V</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">W</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">K</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">L</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Z</td>
+<td style="text-align: center;">3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Now with the frequency analysis we can conjecture <span class="math inline"><em>d</em>(<em>U</em>) = <em>E</em></span> 
+    and <span class="math inline"><em>d</em>(<em>Y</em>) = <em>T</em></span> and with the digraphs we see that in English, 
+    the most used digraph with two equal letters is SS so we suppose <span class="math inline"><em>d</em>(<em>F</em>) = 
+    <em>S</em></span>, with these three letters the text is getting: <span class="math inline"><em>d</em>(<em>F</em>) =
+    <em>S</em></span>, <span class="math inline"><em>d</em>(<em>U</em>) = 
+    <em>E</em></span> and <span class="math inline"><em>d</em>(<em>Y</em>) = <em>T</em></span>.<br />
+<br />
+t J e B J N W Q s D E t J V s s R L C V Q e s B V e K B e Q N t J e Q N t V B s N W e D K C G W e Z e N C e P Y D t J D F e H J D J N Z e t J e B D R W N M e t D P e C Z e V K t D V t B N W C E W V e P W V B J M N R s s<br />
+<br />
+On the other hand, in English it has a probability of occurrence of <span class="math inline">6, 11%</span> and adding to that the fact that it is in many digraphs and trigrams mainly in the trigram “THE" we can safely conjecture that <span class="math inline"><em>d</em>(<em>J</em>) = <em>H</em></span>. In addition, the next letter with more occurrence in the text is N which must correspond then to the letter A, since it is the next most likely, thus the text we get is<br />
+<br />
+t h e B h a W Q s D E t h V s s R L C V Q e s B V e K B e Q a t h e Q a t V B s a W e D K C G W e Z e a C e P t D t h D s e H h D h a Z e t h e B D R W a M e t D P e C Z e V K t D V t B a W C E W V e P W V B h M a R s s<br />
+<br />
+Already the text begins to take shape, one of the letters with the highest probability that we have not assigned is O with a probability of <span class="math inline">7, 70%</span> and in the text we see the group of letters “thDse<span class="math inline">$"$</span> and also D appears 8 times in the text, so we assume <span class="math inline"><em>d</em>(<em>D</em>) = <em>O</em></span>. On the other hand, we conjecture <span class="math inline"><em>d</em>(<em>V</em>) = <em>I</em></span> by the frequency analysis and due to the group of letters “thVs<span class="math inline">$"$</span> and the text looks like this:<br />
+<br />
+t h e B h a W Q s o E t h i s s R L C i Q e s B i e K B e Q a t h e Q a t i B s a W e o K C G W e Z e a C e P t o t h o s e H h o h a Z e t h e B o R W a M e t o P e C Z e i K t o i t B a W C E W i e P W i B h M a R s s<br />
+<br />
+Now we see <span class="math inline"><em>d</em>(<em>W</em>) = <em>R</em></span>, <span class="math inline"><em>d</em>(<em>B</em>) = <em>C</em></span> and <span class="math inline"><em>d</em>(<em>C</em>) = <em>L</em></span> to obtain: <span class="math inline"><em>d</em>(<em>W</em>) = <em>R</em></span>, <span class="math inline"><em>d</em>(<em>B</em>) = <em>C</em></span> and <span class="math inline"><em>d</em>(<em>C</em>) = <em>L</em></span>.<br />
+<br />
+t h e c h a r Q s o E t h i s s R L l i Q e s c i e K c e Q a t h e Q a t i c s a r e o K l G r e Z e a l e P t o t h o s e H h o h a Z e t h e c o R r a M e t o P e l Z e i K t o i t c a r l E r i e P r i c h M a R s s<br />
+<br />
+and finally we see <span class="math inline"><em>d</em>(<em>R</em>) = <em>U</em></span>, <span class="math inline"><em>d</em>(<em>M</em>) = <em>G</em></span>, <span class="math inline"><em>d</em>(<em>E</em>) = <em>F</em></span>, <span class="math inline"><em>d</em>(<em>Q</em>) = <em>M</em></span>, <span class="math inline"><em>d</em>(<em>H</em>) = <em>W</em></span>, <span class="math inline"><em>d</em>(<em>Z</em>) = <em>V</em></span>, <span class="math inline"><em>d</em>(<em>L</em>) = <em>B</em></span>, <span class="math inline"><em>d</em>(<em>K</em>) = <em>N</em></span>, <span class="math inline"><em>d</em>(<em>G</em>) = <em>Y</em></span> and <span class="math inline"><em>d</em>(<em>P</em>) = <em>d</em></span> to obtain the text.<br />
+<br />
+t h e c h a r m s o f t h i s s u b l i m e s c i e n c e m a t h e m a t i c s a r e o n l y r e v e a l e d t o t h o s e w h o h a v e t h e c o u r a g e t o d e l v e i n t o i t c a r l f r i e d r i c h g a u s s<br />
+</p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-5"></div>
+
+    <footer class="bg-light text-center text-lg-start mt-auto">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2021 Copyright
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script>
+        const submitButtonEncrypt = document.getElementById("submitButtonEncrypt")
+        submitButtonEncrypt.addEventListener("click", () => {
+            const encryptionResultsDiv = document.getElementById("encryptionResultsDiv");
+            encryptionResultsDiv.style.display = "flex";
+        })
+    </script>
+
+</body>
+
+</html>

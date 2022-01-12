@@ -6,6 +6,7 @@ from displacementAnalysis import *
 
 letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
+
 def calculateDistance(plain_text):
     sequences = plain_text.split()
     distanceVec = []
@@ -20,12 +21,14 @@ def calculateDistance(plain_text):
             distanceVec.append(distance)
     return np.gcd.reduce(distanceVec)
 
-def divideBlock(plain_text,mcd):
+
+def divideBlock(plain_text, mcd):
     strings = "".join(plain_text.split())
-    blocks = [strings[i:i+mcd] for i in range(0, len(strings), mcd)]
+    blocks = [strings[i:i + mcd] for i in range(0, len(strings), mcd)]
     return blocks
 
-def group(content,mcd):
+
+def group(content, mcd):
     lines = content
     groups = [""] * mcd
     for line in lines:
@@ -33,11 +36,12 @@ def group(content,mcd):
             groups[i] += line[i]
     return groups
 
+
 def breakVigenereEncryption(plain_text):
     mcd = calculateDistance(plain_text)
-    blocks = divideBlock(plain_text,mcd)
-    segments = group(blocks,mcd)
+    blocks = divideBlock(plain_text, mcd)
+    segments = group(blocks, mcd)
     key = ''
-    for element in segments:    
+    for element in segments:
         key += letters[breakCesarEncryption(element)]
     return key

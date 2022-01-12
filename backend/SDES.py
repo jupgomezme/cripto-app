@@ -47,6 +47,8 @@ IP_inv = [4, 1, 3, 5, 7, 2, 8, 6]
 expansion = [4, 1, 2, 3, 2, 3, 4, 1]
 s0 = [[1, 0, 3, 2], [3, 2, 1, 0], [0, 2, 1, 3], [3, 1, 3, 2]]
 s1 = [[0, 1, 2, 3], [2, 0, 1, 3], [3, 0, 1, 0], [2, 1, 0, 3]]
+
+
 def generateKey(key):
     temp = apply_table(key, p10_table)
     left = temp[:5]
@@ -59,25 +61,28 @@ def generateKey(key):
     left = left_shift(left)
     right = left_shift(right)
     key2 = apply_table(left + right, p8_table)
-    return key1,key2
+    return key1, key2
 
-def SDESEncryption(plain_text,key):
+
+def SDESEncryption(plain_text, key):
     keys = generateKey(key)
     temp = apply_table(plain_text, IP)
     temp = function(expansion, s0, s1, keys[0], temp)
     temp = temp[4:] + temp[:4]
     temp = function(expansion, s0, s1, keys[1], temp)
     CT = apply_table(temp, IP_inv)
-    return CT,key
+    return CT, key
 
-def SDESDecryption(plain_text,key):  
-    keys = generateKey(key)     
+
+def SDESDecryption(plain_text, key):
+    keys = generateKey(key)
     temp = apply_table(plain_text, IP)
     temp = function(expansion, s0, s1, keys[1], temp)
     temp = temp[4:] + temp[:4]
     temp = function(expansion, s0, s1, keys[0], temp)
     PT = apply_table(temp, IP_inv)
-    return  PT,key
+    return PT, key
 
-print(SDESEncryption('10111001','1101111101'))
-print(SDESDecryption('10100001','1101111101'))
+
+print(SDESEncryption('10111001', '1101111101'))
+print(SDESDecryption('10100001', '1101111101'))

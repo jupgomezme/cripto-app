@@ -9,12 +9,14 @@ import os
 current_folder_path = str(pathlib.Path(__file__).parent.resolve())
 data_folder_path = current_folder_path + "/data"
 
+
 def transform(np_array, shape):
     return np_array.reshape(shape).astype('uint8')
 
+
 def read_image(image_file_name):
     """ Read an image and return a one hot vector of the image"""
-    image_file_name = data_folder_path + "/" +image_file_name
+    image_file_name = data_folder_path + "/" + image_file_name
     img = imageio.imread(image_file_name)
     print(img.shape)
     reshape_value = 1
@@ -50,7 +52,7 @@ class Hill:
             # print('here')
             # Load the key if she exist in the current dir
             # print(key_path)
-            self._key = pickle.load(open( key_path, "rb" ))
+            self._key = pickle.load(open(key_path, "rb"))
             # print('Usigng the args -k ' + key_path)
         else:
             file_name = file_name + '.key'
@@ -58,23 +60,21 @@ class Hill:
             if os.path.isfile(file_name):
                 # print('or here')
                 # Load the key if she exist in the current dir
-                self._key = pickle.load(open( file_name, "rb" ))
+                self._key = pickle.load(open(file_name, "rb"))
                 # print('Using the ' + file_name)
             else:
                 # Generate a random key
                 self._key = np.random.random_integers(0, 100, (self.chunk, self.chunk))
-                
+
                 # If determinat is equal to zero regenrate another key
                 if det(self._key) == 0:
                     self._key = np.random.random_integers(0, 100, (self.chunk, self.chunk))
 
                 # Save the key in a pickle
-                pickle.dump( self._key, open( file_name, "wb" ) )
-
+                pickle.dump(self._key, open(file_name, "wb"))
 
         # Get the inverse of the key
         self.reversed_key = np.matrix(self._key).I.A
-
 
     def computer_chunk(self):
         max_chunk = 100
@@ -83,7 +83,6 @@ class Hill:
         for i in range(max_chunk, 0, -1):
             if data_shape % i == 0:
                 return i
-
 
     @property
     def key(self):
@@ -96,13 +95,11 @@ class Hill:
         key = self._key
 
         for i in range(0, len(data), chunk):
-
             temp = list(np.dot(key, data[i:i + chunk]))
             crypted.append(temp)
 
         crypted = (np.array(crypted)).reshape((1, len(data)))
         return crypted[0]
-
 
     def decode(self, data):
         """ Decode function """
@@ -118,35 +115,35 @@ class Hill:
 
         return uncrypted[0]
 
-def hillImageEncryption(image, image_file_name, hill, original_shape):   
-    
+
+def hillImageEncryption(image, image_file_name, hill, original_shape):
     # -----------------------------------------------------------------
     # ------------------------- Encoding part -------------------------
     # -----------------------------------------------------------------
-    
+
     # Get the encdoed vector image
     encoded_image_vector = hill.encode(image)
-    
+
     # Reshape to the original shape of the image
     encoded_image = encoded_image_vector.reshape(original_shape)
-    
+
     # Show the decoded image
     # show_image(encoded_image.astype('uint8'))
-    
+
     # Setup the encdoed file name to be used when saving the encdoed image
     img_name = image_file_name.split('.')[0]
     img_extension = image_file_name.split('.')[1]
     encoded_img_name = '{0}-encoded.{1}'.format(img_name, img_extension)
-    
-     # Convert to uint8
+
+    # Convert to uint8
     encoded_image = encoded_image.astype('uint8')
-    
+
     # Save the image
     encoded_image_path = data_folder_path + "/" + encoded_img_name
     imageio.imwrite(encoded_image_path, encoded_image)
-    pickle.dump(encoded_image_vector, open( encoded_image_path + '.pk', "wb" ))
-    
-    return encoded_image,encoded_image_path
+    pickle.dump(encoded_image_vector, open(encoded_image_path + '.pk', "wb"))
+
+    return encoded_image, encoded_image_path
 
 
 # # -----------------------------------------------------------------
@@ -154,15 +151,14 @@ def hillImageEncryption(image, image_file_name, hill, original_shape):
 # # -----------------------------------------------------------------
 
 def hillImageDecryption(image, image_file_name, hill, original_shape):
-    
     img_vector = pickle.load(open(image + '.pk', 'rb'))
 
     # Get the decoded vector image
     decoded_image_vector = hill.decode(img_vector)
-    
+
     # Reshape to the original shape of the image
     decoded_image = decoded_image_vector.reshape(original_shape)
-    
+
     img_name = image_file_name.split('.')[0]
     img_extension = image_file_name.split('.')[1]
     decoded_img_name = '{0}-decoded.{1}'.format(img_name, img_extension)
@@ -170,7 +166,7 @@ def hillImageDecryption(image, image_file_name, hill, original_shape):
     # Save the image
     decoded_image_path = data_folder_path + "/" + decoded_img_name
     imageio.imwrite(decoded_image_path, decoded_image)
-    
+
     return decoded_image
 
 
