@@ -75,7 +75,7 @@
 
 <div class="container">
     <div class="row">
-        <h1 class="mt-3 text-center">Hill Cipher</h1>
+        <h1 class="mt-3 text-center">Hill Text Cipher</h1>
     </div>
     <div class="row">
         <div class="col card container mt-3">
@@ -146,6 +146,37 @@
                     <p><b>Decryption: </b><span id="cardDecryptionText"></span></p>
                     <p><b>Key Used: </b><span id="cardDecryptionKey"></span></p>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h1 class="mt-3 text-center">Images</h1>
+    </div>
+    <div class="row">
+        <div class="col card container mt-3">
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="imageInput" class="btn btn-primary">Select Image</label>
+                        <input id="imageInput" style="visibility:hidden;" type="file">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="imageResultsDiv" class="row"  style="display: none">
+        <div class="col card container p-5" >
+            <img id = "encodedImg" class="card-img-top" src="https://static.ffx.io/images/$zoom_1%2C$multiply_0.9281%2C$ratio_1.5%2C$width_668%2C$x_0%2C$y_182/t_crop_custom/q_86%2Cf_auto/820b56addf8886d3851db6e54cff02ed6ffb783a" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Encoded Image</h5>
+                <p class="card-text">This is the image after applying the encoding algorithm.</p>
+            </div>
+        </div>
+        <div class="col card container p-5" >
+            <img id = "decodedImg"  class="card-img-top" src="https://static.ffx.io/images/$zoom_1%2C$multiply_0.9281%2C$ratio_1.5%2C$width_668%2C$x_0%2C$y_182/t_crop_custom/q_86%2Cf_auto/820b56addf8886d3851db6e54cff02ed6ffb783a" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Decoded Image</h5>
+                <p class="card-text">This is the image after applying the decoding algorithm.</p>
             </div>
         </div>
     </div>
@@ -351,6 +382,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 <script algorithm="hill" src="../scripts/script.js"></script>
+<script src="../scripts/hillImage.js"></script>
 
 </body>
 

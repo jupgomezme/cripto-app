@@ -18,7 +18,7 @@ def read_image(image_file_name):
     """ Read an image and return a one hot vector of the image"""
     image_file_name = data_folder_path + "/" + image_file_name
     img = imageio.imread(image_file_name)
-    print(img.shape)
+    # print(img.shape)
     reshape_value = 1
 
     for i in img.shape:
@@ -177,4 +177,3 @@ def finalHillImage(image_file_name):
     imgDecrypted = hillImageDecryption(imgEncrypted[1], image_file_name, hill, original_shape)
 
 
-finalHillImage("lena.jpg")

@@ -1,11 +1,14 @@
-from typing import Optional
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+
+from typing import Optional
 from pydantic import BaseModel
+
 import subprocess
-import aiofiles
 
 from displacement import cesarEncryptionWithKey, cesarDecryptionWithKey, cesarEncryptionNoKey, cesarDecryptionNoKey
+from hillImage import finalHillImage
 from substitution import sustitutionEncryptionWithKey, sustitutionEncryptionNoKey, sustitutionDecryptionWithKey
 from affine import affineEncryptionWithKey, affineEncryptionNoKey, affineDecryptionWithKey
 from vigenere import vigenereEncryptionWithKey, vigenereEncryptionWithNoKey, vigenereDecryptionWithKey
@@ -14,6 +17,8 @@ from hill import hillEncryptionWithKey, hillEncryptionNoKey, hillDecryptionWithK
 from displacementAnalysis import breakCesarEncryption
 from vigenereAnalysis import breakVigenereEncryption
 from hillAnalysis import hillAnalysisSizeKnow
+
+from file_helper import save_file, get_file_name_extended, data_path
 
 app = FastAPI()
 
@@ -124,9 +129,13 @@ def update():
     return rc
 
 
-@app.post("/upload-file/")
-async def create_upload_file(uploaded_file: UploadFile = File(...)):
-    file_location = f"files/{uploaded_file.filename}"
-    with open(file_location, "wb+") as file_object:
-        file_object.write(uploaded_file.file.read())
-    return {"info": f"file '{uploaded_file.filename}' saved at '{file_location}'"}
+@app.post("/img", response_class=FileResponse)
+async def create_file(
+        file: UploadFile = File(...)
+):
+    file_name = file.filename
+    save_file(file)
+    finalHillImage(file_name)
+    encoded_file_name = get_file_name_extended(file_name)
+
+    return data_path + encoded_file_name
