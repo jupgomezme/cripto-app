@@ -1,8 +1,9 @@
 from typing import Optional
-from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import subprocess
+import aiofiles
 
 from displacement import cesarEncryptionWithKey, cesarDecryptionWithKey, cesarEncryptionNoKey, cesarDecryptionNoKey
 from substitution import sustitutionEncryptionWithKey, sustitutionEncryptionNoKey, sustitutionDecryptionWithKey
@@ -36,7 +37,6 @@ class Item(BaseModel):
 
 @app.post("/")
 def read_root(item: Item):
-
     algorithm = item.algorithm
     action = item.action
     data = item.data
@@ -108,9 +108,6 @@ def read_root(item: Item):
     elif algorithm == "hillAnalysis":
         data_processed = hillAnalysisSizeKnow(data, encrypted_for_hill_analysis, int(matrix_size_for_hill_analysis))
 
-    elif algorithm == "hillImageAnalysis":
-        pass
-
     else:
         return {
             "message": "wrong algorithm!"
@@ -120,8 +117,16 @@ def read_root(item: Item):
 
 
 @app.get("/update")
-def read_root():
+def update():
     with open('./../ci_cd.sh', 'rb') as file:
         script = file.read()
     rc = subprocess.call(script, shell=True)
     return rc
+
+
+@app.post("/upload-file/")
+async def create_upload_file(uploaded_file: UploadFile = File(...)):
+    file_location = f"files/{uploaded_file.filename}"
+    with open(file_location, "wb+") as file_object:
+        file_object.write(uploaded_file.file.read())
+    return {"info": f"file '{uploaded_file.filename}' saved at '{file_location}'"}
