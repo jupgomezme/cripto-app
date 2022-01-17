@@ -1519,17 +1519,11 @@
         <img src="Images/Cifrado DES_19.png" alt="Tables of permutations for each of the boxes" /><figcaption aria-hidden="true">Tables of permutations for each of the boxes</figcaption>
         </figure>
         <p>Now, each six-bit box is going to give us two pieces of data, the first and the last bit are going to give us the row and the middle 4 are going to give us the column, all this taking into account the binary configuration of the numbers up to 15, for <span class="math inline"><em>K</em><sub>1</sub> ⊕ <em>E</em>(<em>R</em><sub>0</sub>)</span> we see:</p>
-        <div class="center">
-        <p><span class="math inline"><em>K</em><sub>1</sub> ⊕ <em>E</em>(<em>R</em><sub>0</sub>)=</span> <span style="color: purple">0</span><span style="color: cyan">1001</span><span style="color: purple">0</span> 000101 000011 100111 001010 110110 100110 010111</p>
-        </div>
+        <p class="text-center"><span class="math inline"><em>K</em><sub>1</sub> ⊕ <em>E</em>(<em>R</em><sub>0</sub>)=</span> <span style="color: purple">0</span><span style="color: cyan">1001</span><span style="color: purple">0</span> 000101 000011 100111 001010 110110 100110 010111</p>
         <p>Where 00 is 0 and therefore for <span class="math inline"><em>S</em><sub>1</sub>(<em>B</em><sub>1</sub>)</span> we are in the first row and 1001 is 9 so <span class="math inline"><em>S</em><sub>1</sub>(<em>B</em><sub>1</sub>)</span> is the number located in row 0 column 9, i.e. 10, which in binary is written 1010 so <span class="math inline"><em>K</em><sub>1</sub> ⊕ <em>E</em>(<em>R</em><sub>0</sub>)</span> is left:</p>
-        <div class="center">
-        <p><span class="math inline"><em>K</em><sub>1</sub> ⊕ <em>E</em>(<em>R</em><sub>0</sub>)=</span> <span style="color: teal">1010</span> 000101 000011 100111 001010 110110 100110 010111</p>
-        </div>
+        <p class="text-center"><span class="math inline"><em>K</em><sub>1</sub> ⊕ <em>E</em>(<em>R</em><sub>0</sub>)=</span> <span style="color: teal">1010</span> 000101 000011 100111 001010 110110 100110 010111</p>
         <p>and repeat the process until we obtain</p>
-        <div class="center">
-        <p><span class="math inline"><em>S</em><sub>1</sub>(<em>B</em><sub>1</sub>)<em>S</em><sub>2</sub>(<em>B</em><sub>2</sub>)<em>S</em><sub>3</sub>(<em>B</em><sub>3</sub>)<em>S</em><sub>4</sub>(<em>B</em><sub>4</sub>)<em>S</em><sub>5</sub>(<em>B</em><sub>5</sub>)<em>S</em><sub>6</sub>(<em>B</em><sub>6</sub>)<em>S</em><sub>7</sub>(<em>B</em><sub>7</sub>)<em>S</em><sub>8</sub>(<em>B</em><sub>8</sub>)=</span> 1010 0100 0111 0110 1010 1010 1101 1011</p>
-        </div>
+        <p class="text-center"><span class="math inline"><em>S</em><sub>1</sub>(<em>B</em><sub>1</sub>)<em>S</em><sub>2</sub>(<em>B</em><sub>2</sub>)<em>S</em><sub>3</sub>(<em>B</em><sub>3</sub>)<em>S</em><sub>4</sub>(<em>B</em><sub>4</sub>)<em>S</em><sub>5</sub>(<em>B</em><sub>5</sub>)<em>S</em><sub>6</sub>(<em>B</em><sub>6</sub>)<em>S</em><sub>7</sub>(<em>B</em><sub>7</sub>)<em>S</em><sub>8</sub>(<em>B</em><sub>8</sub>)=</span> 1010 0100 0111 0110 1010 1010 1101 1011</p>
         <p>and now we make a permutation P for the previous result, this permutation also yields a result of 32 bits.</p>
 <div class="center">
 <table class="table table-striped">
@@ -1738,23 +1732,23 @@
 <td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline"><em>R</em><sub>1</sub></span></td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
+<th style="text-align: center;"><span class="math inline"><em>R</em><sub>1</sub></span></th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">0</th>
 </tr>
 </tbody>
 </table>
@@ -1839,30 +1833,35 @@
 <td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline"><em>R</em><sub>1</sub></span></td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
+<th style="text-align: center;"><span class="math inline"><em>R</em><sub>1</sub></span></th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">1</th>
 </tr>
 </tbody>
 </table>
 </div> 
 <p>So, we have <span class="math inline"><em>L</em><sub>1</sub> = 101001101110111011101000101010111000110111011101110111011101110111011101110111011111</span> and <span class="math inline"><em>R</em><sub>1</sub> = 0100101111100010001000110110110110001001111</span> and we repeat this process 16 times until we get <span class="math inline"><em>L</em><sub>16</sub></span> and <span class="math inline"><em>R</em><sub>16</sub></span>, already with the two 32-bit blocks, we join them to obtain a single block of 64 bits but they will be first those of the <span class="math inline"><em>R</em><sub>16</sub></span> block and then those of the <span class="math inline"><em>L</em><sub>16</sub></span> block, and when we join the two blocks we only need to apply the permutation <span class="math inline"><em>I</em><em>P</em><sup>−1</sup></span> in the same way that we apply the rest of the permutations and so we finish with the example.<br />
-    <strong>To decrypt the text we only need to apply the same procedure but in reverse, that is, apply the steps from <span class="math inline"><em>L</em><sub>16</sub></span> and <span class="math inline"><em>R</em><sub>16</sub></span> to <span class="math inline"><em>L</em><sub>0</sub></span> and <span class="math inline"><em>R</em><sub>0</sub></span>.</strong></p>
-    
+    <table>
+    <tbody>
+    <tr class="table-warning">
+    <td style="text-align: center;">To decrypt the text we only need to apply the same procedure but in reverse, that is, apply the steps from <span class="math inline"><em>L</em><sub>16</sub></span> and <span class="math inline"><em>R</em><sub>16</sub></span> to <span class="math inline"><em>L</em><sub>0</sub></span> and <span class="math inline"><em>R</em><sub>0</sub></span>.</td>
+    </tr>
+    </tbody>
+    </table>
             </div>
         </div>
     </div>
