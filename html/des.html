@@ -191,7 +191,7 @@
                     </table>
                     </div>
                     <div class="center">
-                    <table>
+                    <table class="table table-striped">
                     <tbody>
                     <tr class="odd">
                     <td style="text-align: center;">10111</td>
@@ -229,7 +229,7 @@
                     <p>To obtain M=0001001001<span style="color: red">0</span>1001000<span style="color: red">1</span>1100001<span style="color: red">1</span>0011101<span style="color: red">0</span>01010101101<span style="color: red">0</span>1011100<span style="color: red">0</span>0111011<span style="color: red">0</span>1010111<span style="color: red">1</span> where the red bits are the multiples of eight and will serve as reference and<br />
                     k=1011101<span style="color: blue">0</span>0101010<span style="color: blue">1</span>0110010<span style="color: blue">1</span>0101101<span style="color: blue">0</span>1110100<span style="color: blue">1</span>0011001<span style="color: blue">1</span>0000110<span style="color: blue">1</span>1100111<span style="color: blue">1</span> those blue bits are the multiples of 8 and these will not appear in the key to be used. but we will do that later. Now we use the IP permutation table to make the first permutation of the elements of M, this table is standard and is easily found on the internet.</p>
                     <div class="center">
-                        <table>
+                        <table class="table table-striped">
                         <tbody>
                         <tr class="odd">
                         <td style="text-align: center;">M</td>
@@ -307,7 +307,7 @@
                         </table>
                         </div>
                         <div class="center">
-                        <table>
+                        <table class="table table-striped">
                         <tbody>
                         <tr class="odd">
                         <td style="text-align: center;">M</td>
@@ -388,7 +388,7 @@
                         </table>
                         </div>
                         <div class="center">
-                        <table>
+                        <table class="table table-striped">
                         <tbody>
                         <tr class="odd">
                         <td style="text-align: center;">M</td>
@@ -467,7 +467,7 @@
                         </div>
                         <p>And now we divide <span class="math inline"><em>M</em><sub>0</sub></span> into two 32-bit blocks that we will call <span class="math inline"><em>L</em><sub>0</sub></span> (the first 32 bits) and <span class="math inline"><em>R</em><sub>0</sub></span> (the last 32 bits) and so: <span class="math display"><em>L</em><sub>0</sub> = 01010100011110111100000110000110   <em>R</em><sub>0</sub> = 10100110111010001011100011011101</span> Now, with the key we had we are going to find the key to be implemented using table PC-1 which is also provided by the general algorithm and is easily found</p>
                         <div class="center">
-                            <table>
+                            <table class="table table-striped">
                             <tbody>
                             <tr class="odd">
                             <td style="text-align: center;">K</td>
@@ -545,7 +545,7 @@
                             </table>
                             </div>
                             <div class="center">
-                            <table>
+                            <table class="table table-striped">
                             <tbody>
                             <tr class="odd">
                             <td style="text-align: center;">K</td>
@@ -623,7 +623,7 @@
                             </table>
                             </div>
                             <div class="center">
-                            <table>
+                            <table class="table table-striped">
                             <tbody>
                             <tr class="odd">
                             <td style="text-align: center;">K</td>
@@ -705,16 +705,14 @@
                             </div>
                             <p>And we divide this key in two keys of 28 bits each one, the first 28 will be <span class="math inline"><em>C</em><sub>0</sub></span> and the last 28 <span class="math inline"><em>D</em><sub>0</sub></span> and therefore we have <span class="math inline"><em>C</em><sub>0</sub> = 10010010001100111111000110101101010000</span> and <span class="math inline"><em>D</em><sub>0</sub> = 101010011111000110110110110011011</span>. Now, we must make some permutations following the following rules, if the permutation is the first, the second, the ninth or the sixteenth we shift one bit to the left, otherwise we shift two bits to the left, thus, during the 16 iterations we obtain:</p>
                             <div class="center">
-                                <table>
-                                <thead>
-                                <tr class="header">
+                                <table class="table table-striped">
+                                <tbody>    
+                                <tr class="even">
                                 <th style="text-align: center;"><span class="math inline"><em>C</em><sub>0</sub></span></th>
                                 <th style="text-align: center;">1001000110011110001101010000</th>
                                 <th style="text-align: center;"><span class="math inline"><em>D</em><sub>0</sub></span></th>
                                 <th style="text-align: center;">1010100111000110110110011011</th>
                                 </tr>
-                                </thead>
-                                <tbody>
                                 <tr class="odd">
                                 <td style="text-align: center;"><span class="math inline"><em>C</em><sub>1</sub></span></td>
                                 <td style="text-align: center;">0010001100111100011010100001</td>
@@ -816,7 +814,7 @@
                                 </div>
                                 <p>Now we form the keys for each of the iterations with the help of the PC-2 table, what we do is to pass <span class="math inline"><em>C</em><sub><em>n</em></sub><em>D</em><sub><em>n</em></sub>(56 bits) ⇒ <em>K</em><sub><em>n</em></sub>(48 bits)</span>:</p>
                                 <div class="center">
-                                    <table>
+                                    <table class="table table-striped">
                                     <tbody>
                                     <tr class="odd">
                                     <td style="text-align: center;"><span class="math inline"><em>C</em><sub>1</sub><em>D</em><sub>1</sub></span></td>
@@ -897,7 +895,7 @@
                                     </table>
                                     </div>
                                     <div class="center">
-                                    <table>
+                                    <table class="table table-striped">
                                     <tbody>
                                     <tr class="odd">
                                     <td style="text-align: center;"><span class="math inline"><em>C</em><sub>1</sub><em>D</em><sub>1</sub></span></td>
@@ -978,7 +976,7 @@
                                     </table>
                                     </div>
                                     <div class="center">
-                                    <table>
+                                    <table class="table table-striped">
                                     <tbody>
                                     <tr class="odd">
                                     <td style="text-align: center;"><span class="math inline"><em>C</em><sub>1</sub><em>D</em><sub>1</sub></span></td>
@@ -1060,7 +1058,7 @@
                                     </div>
                                     <p>We already did the process for <span class="math inline"><em>K</em><sub>1</sub></span> but it must be done for each <span class="math inline"><em>K</em><sub><em>n</em></sub></span> up to <span class="math inline"><em>n</em> = 16</span> and with all the keys we start the 16 rounds of the cipher. The operations to be performed in each round are two and are described as follows <span class="math inline"><em>L</em><sub><em>n</em></sub> = <em>R</em><sub><em>n</em> − 1</sub></span> and <span class="math inline"><em>R</em><sub><em>n</em></sub> = <em>L</em><sub><em>n</em> − 1</sub> ⊕ <em>F</em>(<em>R</em><sub><em>n</em> − 1</sub>,<em>K</em><sub><em>n</em></sub>)</span>. First we must expand each block <span class="math inline"><em>R</em><sub><em>n</em> − 1</sub></span> from 32 bits to 48 bits, starting with <span class="math inline"><em>R</em><sub>0</sub></span>.</p>
                                     <div class="center">
-                                        <table>
+                                        <table class="table table-striped">
                                         <tbody>
                                         <tr class="odd">
                                         <td style="text-align: center;"><span class="math inline"><em>R</em><sub>0</sub></span></td>
@@ -1150,7 +1148,7 @@
                                         </table>
                                         </div>
                                         <div class="center">
-                                        <table>
+                                        <table class="table table-striped">
                                         <tbody>
                                         <tr class="odd">
                                         <td style="text-align: center;">1</td>
@@ -1256,7 +1254,7 @@
                                         </div>
                                         <p>and we get <span class="math inline"><em>E</em>(<em>R</em><sub>0</sub>) = 110100001101010111101000010100001010111111111000101101111111011</span> of 48 bits. Now we do an XOR operation between <span class="math inline"><em>K</em><sub><em>n</em></sub></span> and <span class="math inline"><em>E</em>(<em>R</em><sub><em>n</em> − 1</sub>)</span>, for the example we will use <span class="math inline"><em>K</em><sub>1</sub> ⊕ <em>E</em>(<em>R</em><sub>0</sub>)</span> the XOR operation works like an addition, the only difference is that <span class="math inline">1 ⊕ 1 = 0</span>, with that in mind we do the operation</p>
                                         <div class="center">
-<table>
+<table class="table table-striped">
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"><span class="math inline"><em>K</em><sub>1</sub></span></td>
@@ -1357,7 +1355,7 @@
 </table>
 </div>
 <div class="center">
-<table>
+<table class="table table-striped">
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"><span class="math inline"><em>K</em><sub>1</sub></span></td>
@@ -1458,7 +1456,7 @@
 </table>
 </div>
 <div class="center">
-<table>
+<table class="table table-striped">
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"><span class="math inline"><em>K</em><sub>1</sub></span></td>
@@ -1560,7 +1558,7 @@
 </div>
 <p>Already with the group of 48 bits we divide them in 8 boxes of 6 bits, boxes that will be transformed each one in a box of 4 bits and no longer of 6, so that <span class="math inline"><em>K</em><sub><em>n</em></sub> ⊕ <em>E</em>(<em>R</em><sub><em>n</em> − 1</sub>)</span> will no longer have 48 bits but 32. We will call the boxes <span class="math inline"><em>B</em><sub><em>n</em></sub></span> with <span class="math inline"><em>n</em></span> from 1 to 8 and to each box we will make a permutation <span class="math inline"><em>S</em><sub><em>n</em></sub></span> that appears in the following tables.</p>
 <div class="center">
-    <table>
+    <table class="table table-striped">
     <tbody>
     <tr class="odd">
     <td style="text-align: center;"><span class="math inline"><em>K</em><sub>1</sub></span></td>
@@ -1661,7 +1659,7 @@
     </table>
     </div>
     <div class="center">
-    <table>
+    <table class="table table-striped">
     <tbody>
     <tr class="odd">
     <td style="text-align: center;"><span class="math inline"><em>K</em><sub>1</sub></span></td>
@@ -1762,7 +1760,7 @@
     </table>
     </div>
     <div class="center">
-    <table>
+    <table class="table table-striped">
     <tbody>
     <tr class="odd">
     <td style="text-align: center;"><span class="math inline"><em>K</em><sub>1</sub></span></td>
@@ -1880,7 +1878,7 @@
         </div>
         <p>and now we make a permutation P for the previous result, this permutation also yields a result of 32 bits.</p>
 <div class="center">
-<table>
+<table class="table table-striped">
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"><span class="math inline"><em>S</em><sub><em>n</em></sub>(<em>B</em><sub><em>n</em></sub>)</span></td>
@@ -1943,7 +1941,7 @@
 </table>
 </div>
 <div class="center">
-<table>
+<table class="table table-striped">
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"><span class="math inline"><em>S</em><sub><em>n</em></sub>(<em>B</em><sub><em>n</em></sub>)</span></td>
@@ -2007,7 +2005,7 @@
 </div>
 <p>and since <span class="math inline"><em>R</em><sub><em>n</em></sub> = <em>L</em><sub><em>n</em> − 1</sub> ⊕ <em>F</em>(<em>R</em><sub><em>n</em> − 1</sub>,<em>K</em><sub><em>n</em></sub>)</span> we have for our first case that <span class="math inline"><em>R</em><sub>1</sub></span> is</p>
 <div class="center">
-<table>
+<table class="table table-striped">
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"><span class="math inline"><em>L</em><sub>0</sub></span></td>
@@ -2108,7 +2106,7 @@
 </table>
 </div>
 <div class="center">
-<table>
+<table class="table table-striped">
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"><span class="math inline"><em>L</em><sub>0</sub></span></td>
