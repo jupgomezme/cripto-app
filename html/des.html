@@ -153,7 +153,7 @@
             <div class="card-body">
                 <h5 class="card-title">Explanation</h5>
                 <p>The standard DES data encryption encrypts a message of 64 bits or 12.8 letters, if you have a longer message this is divided into blocks of that length and if it is shorter we can fill the gaps with bits randomly. We use in this encryption a 64 bits key that can be given in the form of letters or in binary, after all if the key is given in the form of letters it is only necessary to pass it to binary. Already with the key in binary we make an initial permutation or transformation, the bits are divided into two blocks, the first 32 and the last 32 or those on the right and those on the left. Then we use the Feistel function to perform 16 rounds of identical permutations, join the two blocks again and perform a last permutation to obtain the ciphertext. To better understand this method, let’s take the following example.<br />
-                    <strong>Example:</strong> Let’s encrypt the text “Big yellow taxi<span class="math inline">$"$</span> using DES encryption with the key “This is the key<span class="math inline">$"$</span>. First we pass the plaintext and the key to binary</p>
+                    <strong>Example:</strong> Let’s encrypt the text "Big yellow taxi" using DES encryption with the key "This is the key". First we pass the plaintext and the key to binary</p>
                     <div class="center">
                     <table class="table table-striped">
                     <tbody>
@@ -226,8 +226,7 @@
                     </tbody>
                     </table>
                     </div>
-                    <p>To obtain M=0001001001<span style="color: red">0</span>1001000<span style="color: red">1</span>1100001<span style="color: red">1</span>0011101<span style="color: red">0</span>01010101101<span style="color: red">0</span>1011100<span style="color: red">0</span>0111011<span style="color: red">0</span>1010111<span style="color: red">1</span> where the red bits are the multiples of eight and will serve as reference and<br />
-                    k=1011101<span style="color: blue">0</span>0101010<span style="color: blue">1</span>0110010<span style="color: blue">1</span>0101101<span style="color: blue">0</span>1110100<span style="color: blue">1</span>0011001<span style="color: blue">1</span>0000110<span style="color: blue">1</span>1100111<span style="color: blue">1</span> those blue bits are the multiples of 8 and these will not appear in the key to be used. but we will do that later. Now we use the IP permutation table to make the first permutation of the elements of M, this table is standard and is easily found on the internet.</p>
+                    <p>To obtain M=0001001001<span style="color: red">0</span>1001000<span style="color: red">1</span>1100001<span style="color: red">1</span>0011101<span style="color: red">0</span>01010101101<span style="color: red">0</span>1011100<span style="color: red">0</span>0111011<span style="color: red">0</span>1010111<span style="color: red">1</span> where the red bits are the multiples of eight and will serve as reference and k=1011101<span style="color: blue">0</span>0101010<span style="color: blue">1</span>0110010<span style="color: blue">1</span>0101101<span style="color: blue">0</span>1110100<span style="color: blue">1</span>0011001<span style="color: blue">1</span>0000110<span style="color: blue">1</span>1100111<span style="color: blue">1</span> those blue bits are the multiples of 8 and these will not appear in the key to be used. but we will do that later. Now we use the IP permutation table to make the first permutation of the elements of M, this table is standard and is easily found on the internet.</p>
                     <div class="center">
                         <table class="table table-striped">
                         <tbody>
@@ -465,7 +464,8 @@
                         </tbody>
                         </table>
                         </div>
-                        <p>And now we divide <span class="math inline"><em>M</em><sub>0</sub></span> into two 32-bit blocks that we will call <span class="math inline"><em>L</em><sub>0</sub></span> (the first 32 bits) and <span class="math inline"><em>R</em><sub>0</sub></span> (the last 32 bits) and so: <span class="math display"><em>L</em><sub>0</sub> = 01010100011110111100000110000110   <em>R</em><sub>0</sub> = 10100110111010001011100011011101</span> Now, with the key we had we are going to find the key to be implemented using table PC-1 which is also provided by the general algorithm and is easily found</p>
+                        <p>And now we divide <span class="math inline"><em>M</em><sub>0</sub></span> into two 32-bit blocks that we will call <span class="math inline"><em>L</em><sub>0</sub></span> (the first 32 bits) and <span class="math inline"><em>R</em><sub>0</sub></span> (the last 32 bits) and so:<br> 
+                            <span class="math display"><em>L</em><sub>0</sub> = 01010100011110111100000110000110   <em>R</em><sub>0</sub> = 10100110111010001011100011011101</span> Now, with the key we had we are going to find the key to be implemented using table PC-1 which is also provided by the general algorithm and is easily found</p>
                         <div class="center">
                             <table class="table table-striped">
                             <tbody>
@@ -708,10 +708,10 @@
                                 <table class="table table-striped">
                                 <tbody>    
                                 <tr class="even">
-                                <th style="text-align: center;"><span class="math inline"><em>C</em><sub>0</sub></span></th>
-                                <th style="text-align: center;">1001000110011110001101010000</th>
-                                <th style="text-align: center;"><span class="math inline"><em>D</em><sub>0</sub></span></th>
-                                <th style="text-align: center;">1010100111000110110110011011</th>
+                                <td style="text-align: center;"><span class="math inline"><em>C</em><sub>0</sub></span></td>
+                                <td style="text-align: center;">1001000110011110001101010000</td>
+                                <td style="text-align: center;"><span class="math inline"><em>D</em><sub>0</sub></span></td>
+                                <td style="text-align: center;">1010100111000110110110011011</td>
                                 </tr>
                                 <tr class="odd">
                                 <td style="text-align: center;"><span class="math inline"><em>C</em><sub>1</sub></span></td>
