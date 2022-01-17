@@ -152,7 +152,82 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Explanation</h5>
-                Here is the explanation
+                <p>The standard DES data encryption encrypts a message of 64 bits or 12.8 letters, if you have a longer message this is divided into blocks of that length and if it is shorter we can fill the gaps with bits randomly. We use in this encryption a 64 bits key that can be given in the form of letters or in binary, after all if the key is given in the form of letters it is only necessary to pass it to binary. Already with the key in binary we make an initial permutation or transformation, the bits are divided into two blocks, the first 32 and the last 32 or those on the right and those on the left. Then we use the Feistel function to perform 16 rounds of identical permutations, join the two blocks again and perform a last permutation to obtain the ciphertext. To better understand this method, let’s take the following example.<br />
+                    <strong>Example:</strong> Let’s encrypt the text “Big yellow taxi<span class="math inline">$"$</span> using DES encryption with the key “This is the key<span class="math inline">$"$</span>. First we pass the plaintext and the key to binary</p>
+                    <div class="center">
+                    <table>
+                    <tbody>
+                    <tr class="odd">
+                    <td style="text-align: center;">00010</td>
+                    <td style="text-align: center;">01010</td>
+                    <td style="text-align: center;">01000</td>
+                    <td style="text-align: center;">11100</td>
+                    <td style="text-align: center;">00110</td>
+                    <td style="text-align: center;">01110</td>
+                    <td style="text-align: center;">10010</td>
+                    <td style="text-align: center;">11010</td>
+                    <td style="text-align: center;">10111</td>
+                    <td style="text-align: center;">00001</td>
+                    <td style="text-align: center;">11011</td>
+                    <td style="text-align: center;">01010</td>
+                    <td style="text-align: center;"></td>
+                    </tr>
+                    <tr class="even">
+                    <td style="text-align: center;">b</td>
+                    <td style="text-align: center;">i</td>
+                    <td style="text-align: center;">g</td>
+                    <td style="text-align: center;">y</td>
+                    <td style="text-align: center;">e</td>
+                    <td style="text-align: center;">ll</td>
+                    <td style="text-align: center;">o</td>
+                    <td style="text-align: center;">w</td>
+                    <td style="text-align: center;">t</td>
+                    <td style="text-align: center;">a</td>
+                    <td style="text-align: center;">x</td>
+                    <td style="text-align: center;">i</td>
+                    <td style="text-align: center;"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    </div>
+                    <div class="center">
+                    <table>
+                    <tbody>
+                    <tr class="odd">
+                    <td style="text-align: center;">10111</td>
+                    <td style="text-align: center;">01001</td>
+                    <td style="text-align: center;">01010</td>
+                    <td style="text-align: center;">10110</td>
+                    <td style="text-align: center;">01010</td>
+                    <td style="text-align: center;">10110</td>
+                    <td style="text-align: center;">10111</td>
+                    <td style="text-align: center;">01001</td>
+                    <td style="text-align: center;">00110</td>
+                    <td style="text-align: center;">01100</td>
+                    <td style="text-align: center;">00110</td>
+                    <td style="text-align: center;">11100</td>
+                    <td style="text-align: center;"></td>
+                    </tr>
+                    <tr class="even">
+                    <td style="text-align: center;">t</td>
+                    <td style="text-align: center;">h</td>
+                    <td style="text-align: center;">i</td>
+                    <td style="text-align: center;">s</td>
+                    <td style="text-align: center;">i</td>
+                    <td style="text-align: center;">s</td>
+                    <td style="text-align: center;">t</td>
+                    <td style="text-align: center;">h</td>
+                    <td style="text-align: center;">e</td>
+                    <td style="text-align: center;">k</td>
+                    <td style="text-align: center;">e</td>
+                    <td style="text-align: center;">y</td>
+                    <td style="text-align: center;"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    </div>
+                    <p>To obtain M=0001001001<span style="color: red">0</span>1001000<span style="color: red">1</span>1100001<span style="color: red">1</span>0011101<span style="color: red">0</span>01010101101<span style="color: red">0</span>1011100<span style="color: red">0</span>0111011<span style="color: red">0</span>1010111<span style="color: red">1</span> where the red bits are the multiples of eight and will serve as reference and<br />
+                    k=1011101<span style="color: blue">0</span>0101010<span style="color: blue">1</span>0110010<span style="color: blue">1</span>0101101<span style="color: blue">0</span>1110100<span style="color: blue">1</span>0011001<span style="color: blue">1</span>0000110<span style="color: blue">1</span>1100111<span style="color: blue">1</span> those blue bits are the multiples of 8 and these will not appear in the key to be used. but we will do that later. Now we use the IP permutation table to make the first permutation of the elements of M, this table is standard and is easily found on the internet.</p>
             </div>
         </div>
     </div>
