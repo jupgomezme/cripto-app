@@ -155,7 +155,7 @@
                 <p>The standard DES data encryption encrypts a message of 64 bits or 12.8 letters, if you have a longer message this is divided into blocks of that length and if it is shorter we can fill the gaps with bits randomly. We use in this encryption a 64 bits key that can be given in the form of letters or in binary, after all if the key is given in the form of letters it is only necessary to pass it to binary. Already with the key in binary we make an initial permutation or transformation, the bits are divided into two blocks, the first 32 and the last 32 or those on the right and those on the left. Then we use the Feistel function to perform 16 rounds of identical permutations, join the two blocks again and perform a last permutation to obtain the ciphertext. To better understand this method, let’s take the following example.<br />
                     <strong>Example:</strong> Let’s encrypt the text “Big yellow taxi<span class="math inline">$"$</span> using DES encryption with the key “This is the key<span class="math inline">$"$</span>. First we pass the plaintext and the key to binary</p>
                     <div class="center">
-                    <table>
+                    <table class="table table-striped">
                     <tbody>
                     <tr class="odd">
                     <td style="text-align: center;">00010</td>
