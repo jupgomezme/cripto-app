@@ -133,7 +133,7 @@ def hillImageEncryption(image, image_file_name, hill, original_shape):
     # Setup the encdoed file name to be used when saving the encdoed image
     img_name = image_file_name.split('.')[0]
     img_extension = image_file_name.split('.')[1]
-    encoded_img_name = '{0}-encoded.{1}'.format(img_name, img_extension)
+    encoded_img_name = 'encoded_{0}.{1}'.format(img_name, img_extension)
 
     # Convert to uint8
     encoded_image = encoded_image.astype('uint8')
@@ -161,7 +161,7 @@ def hillImageDecryption(image, image_file_name, hill, original_shape):
 
     img_name = image_file_name.split('.')[0]
     img_extension = image_file_name.split('.')[1]
-    decoded_img_name = '{0}-decoded.{1}'.format(img_name, img_extension)
+    decoded_img_name = 'decoded_{0}.{1}'.format(img_name, img_extension)
 
     # Save the image
     decoded_image_path = data_folder_path + "/" + decoded_img_name
@@ -175,5 +175,3 @@ def finalHillImage(image_file_name):
     hill = Hill(data=img, file_name=image_file_name)
     imgEncrypted = hillImageEncryption(img[0], image_file_name, hill, original_shape)
     imgDecrypted = hillImageDecryption(imgEncrypted[1], image_file_name, hill, original_shape)
-
-
