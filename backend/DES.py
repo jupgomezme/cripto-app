@@ -27,6 +27,5 @@ def DESDecrypt(s, key):
     de = k.decrypt(binascii.a2b_hex(s), padmode=PAD_PKCS5)
     return de, key
 
-
-print(DESEncrypt('HOLAMUNDO', 'AASBFURE'))
-print(DESDecrypt('36b617f26eaee1773c65571a822b29c9', 'AASBFURE'))
+# print(DESEncrypt('HOLAMUNDO', 'AASBFURE'))
+# print(DESDecrypt('36b617f26eaee1773c65571a822b29c9', 'AASBFURE'))

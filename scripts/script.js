@@ -1,8 +1,12 @@
+// const API_ENDPOINT = "http://0.0.0.0:8000/";
 const API_ENDPOINT = "http://54.156.2.139:8000/";
 
 const lettersAndSpace = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ '
 const numbersAndComma = "0123456789,"
 const letters = lettersAndSpace.slice(0, -1)
+const numbers = numbersAndComma.slice(0, -1)
+const lettersAndNumbers = letters + numbers
+const lettersAndNumbersWithSpace = lettersAndSpace + numbers
 
 const createTable = (tableData) => {
     const table = document.createElement('table');
@@ -26,7 +30,7 @@ const createTable = (tableData) => {
     return table
 }
 
-const textChecker = (allegedValidText) => {
+const alphabetLikeChecker = (allegedValidText) => {
 
     for (let i = 0; i < allegedValidText.length; i++) {
         const char = allegedValidText[i]
@@ -37,6 +41,40 @@ const textChecker = (allegedValidText) => {
 
     return true
 
+}
+
+const stringChecker = (allegedValidString) => {
+
+    for (let i = 0; i < allegedValidString.length; i++) {
+        const char = allegedValidString[i]
+        if (!lettersAndNumbers.includes(char)) {
+            return false
+        }
+    }
+
+    return true
+
+}
+
+const stringWithSpaceChecker = (allegedValidString) => {
+
+    for (let i = 0; i < allegedValidString.length; i++) {
+        const char = allegedValidString[i]
+        if (!lettersAndNumbersWithSpace.includes(char)) {
+            return false
+        }
+    }
+
+    return true
+
+}
+
+const binaryStringChecker = (allegedBinaryString) => {
+    for (let i = 0; i < allegedBinaryString.length; i++) {
+        const char = allegedBinaryString[i];
+        if (char !== "1" && char !== "0") return false
+    }
+    return true
 }
 
 const alphabetChecker = (allegedUnsortedAlphabet) => {
@@ -98,6 +136,19 @@ const pairIntegersMod26Checker = (allegedIntegersMod26) => {
     return MCD(a, 26) === 1;
 }
 
+const stringFixedLengthsChecker = (lengths) => {
+    return (allegedStringFixedLengthChecker) => {
+        let count = 0
+        for (let i = 0; i < lengths.length; i++) {
+            length = lengths[i]
+            if (allegedStringFixedLengthChecker.length === length) {
+                count += 1;
+            }
+        }
+        return stringChecker(allegedStringFixedLengthChecker) && count > 0;
+    }
+}
+
 const getKeyChecker = (algorithm) => {
     switch (algorithm) {
         case 'displacement':
@@ -111,8 +162,27 @@ const getKeyChecker = (algorithm) => {
         case 'hill':
         case 'hillAnalysis':
             return textChecker
+        case 'des':
+            return stringFixedLengthsChecker([8])
+        case '3des':
+            return stringFixedLengthsChecker([16, 24])
+        case 'sdes':
+            return binaryStringChecker
         default:
             throw new Error("Wrong algorithm!")
+    }
+}
+
+const getTextChecker = (algorithm, action) => {
+    switch (algorithm) {
+        case 'des':
+        case '3des':
+            if (action === "cipher") return stringWithSpaceChecker
+            else return stringChecker
+        case 'sdes':
+            return binaryStringChecker
+        default:
+            return alphabetLikeChecker
     }
 }
 
@@ -214,13 +284,18 @@ const onClickButton = (algorithm, action) => {
                 key
             } = getInputsForm(action)
 
-            if (!data || !textChecker(data)) {
+            if (!data) {
+                alert("Please introduce the text!")
+                return;
+            }
+
+            const textChecker = getTextChecker(algorithm, action);
+            if (!textChecker(data)) {
                 alert("Please introduce valid text!")
                 return;
             }
 
             const keyChecker = getKeyChecker(algorithm);
-
             switch (action) {
                 case "cipher":
                     if (key) {
