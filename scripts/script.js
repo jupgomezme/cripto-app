@@ -1,5 +1,5 @@
-// const API_ENDPOINT = "http://0.0.0.0:8000/";
-const API_ENDPOINT = "http://54.156.2.139:8000/";
+const API_ENDPOINT = "http://0.0.0.0:8000/";
+// const API_ENDPOINT = "http://54.156.2.139:8000/";
 
 const lettersAndSpace = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ '
 const numbersAndComma = "0123456789,"
@@ -230,7 +230,7 @@ const sendRequest = (requestData) =>
         }).then((data_processed) => {
             resolve(data_processed)
         }).catch((error) => {
-            alert("There was an error with the API!")
+            alert("There was an error with the API, Please review your request.")
             console.log(error)
             reject(error)
         })

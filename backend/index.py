@@ -10,6 +10,7 @@ from pydantic import BaseModel
 import subprocess
 
 from DES import DESEncrypt, DESDecrypt
+from DESImage import finalDESImage
 from SDES import SDESEncryption, SDESDecryption
 from TDES import TDESEncrypt, TDESDecrypt
 from displacement import cesarEncryptionWithKey, cesarDecryptionWithKey, cesarEncryptionNoKey, cesarDecryptionNoKey
@@ -24,7 +25,7 @@ from displacementAnalysis import breakCesarEncryption
 from vigenereAnalysis import breakVigenereEncryption
 from hillAnalysis import hillAnalysisSizeKnow
 
-from file_helper import save_file, get_file_name_extended, data_path
+from file_helper import save_file, data_path
 
 app = FastAPI()
 
@@ -166,18 +167,26 @@ def update():
 
 
 @app.post("/img", response_class=FileResponse)
-async def create_file(
+async def process_image(
         file: UploadFile = File(...),
-        action: str = Form(...)
+        algorithm: str = Form(...),
+        action: str = Form(...),
+        key: Optional[str] = Form(...)
 ):
     file_name = file.filename
     save_file(file)
-    finalHillImage(file_name)
+
+    if algorithm == "hill":
+        finalHillImage(file_name)
+    elif algorithm == "des":
+        finalDESImage(file_name, key)
+    else:
+        raise Exception("Wrong algorithm!")
 
     if action == "cipher":
-        output_file_name = get_file_name_extended(file_name)
+        output_file_name = "encoded_" + file_name
     elif action == "decipher":
-        output_file_name = get_file_name_extended(file_name, extended_part="-decoded")
+        output_file_name = "decoded_" + file_name
     else:
         raise Exception("Wrong action!")
 
