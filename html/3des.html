@@ -91,10 +91,9 @@
                         </div>
                         <div class="mb-3">
                             <label for="inputKeyEncrypt" class="form-label">Key</label>
-                            <input type="number" class="form-control" id="inputKeyEncrypt" aria-describedby="keyHelp">
-                            <div id="keyHelp" class="form-text">Please introduce some key in <span
-                                    class="math inline">ℤ<sub>26</sub></span>. If you don't, the system will
-                                automatically generate one.
+                            <input type="text" class="form-control" id="inputKeyEncrypt" aria-describedby="keyHelp" style="text-transform:uppercase">
+                            <div id="keyHelp" class="form-text">
+                                Please introduce a string of length 16 or 24 as a key. If you don't, the system will automatically generate one.
                             </div>
                         </div>
                         <div class="text-center">
@@ -128,7 +127,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="inputKeyDecrypt" class="form-label">Key</label>
-                            <input type="number" class="form-control" id="inputKeyDecrypt" aria-describedby="keyHelp">
+                            <input type="text" class="form-control" id="inputKeyDecrypt" aria-describedby="keyHelp" style="text-transform:uppercase">
                             <div id="keyHelp" class="form-text">Please introduce the key.</div>
                         </div>
                         <div class="text-center">
@@ -173,7 +172,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
-<script algorithm="displacement" src="../scripts/script.js"></script>
+<script algorithm="3des" src="../scripts/script.js"></script>
 
 </body>
 

@@ -1,3 +1,5 @@
+import random
+
 from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
@@ -7,8 +9,12 @@ from pydantic import BaseModel
 
 import subprocess
 
+from DES import DESEncrypt, DESDecrypt
+from SDES import SDESEncryption, SDESDecryption
+from TDES import TDESEncrypt, TDESDecrypt
 from displacement import cesarEncryptionWithKey, cesarDecryptionWithKey, cesarEncryptionNoKey, cesarDecryptionNoKey
 from hillImage import finalHillImage
+from randomHelper import generate_random_string, generate_random_binary_string
 from substitution import sustitutionEncryptionWithKey, sustitutionEncryptionNoKey, sustitutionDecryptionWithKey
 from affine import affineEncryptionWithKey, affineEncryptionNoKey, affineDecryptionWithKey
 from vigenere import vigenereEncryptionWithKey, vigenereEncryptionWithNoKey, vigenereDecryptionWithKey
@@ -112,6 +118,36 @@ def read_root(item: Item):
 
     elif algorithm == "hillAnalysis":
         data_processed = hillAnalysisSizeKnow(data, encrypted_for_hill_analysis, int(matrix_size_for_hill_analysis))
+
+    elif algorithm == "des":
+        if key or str(key) == "0":
+            if action == "cipher":
+                data_processed = DESEncrypt(data, key)
+            elif action == "decipher":
+                data_processed = DESDecrypt(data, key)
+        else:
+            if action == "cipher":
+                data_processed = DESEncrypt(data, generate_random_string())
+
+    elif algorithm == "3des":
+        if key or str(key) == "0":
+            if action == "cipher":
+                data_processed = TDESEncrypt(data, key)
+            elif action == "decipher":
+                data_processed = TDESDecrypt(data, key)
+        else:
+            if action == "cipher":
+                data_processed = TDESEncrypt(data, generate_random_string(random.choice([16, 24])))
+
+    elif algorithm == "sdes":
+        if key or str(key) == "0":
+            if action == "cipher":
+                data_processed = SDESEncryption(data, key)
+            elif action == "decipher":
+                data_processed = SDESDecryption(data, key)
+        else:
+            if action == "cipher":
+                data_processed = SDESEncryption(data, generate_random_binary_string(16))
 
     else:
         return {

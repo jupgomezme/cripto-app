@@ -83,6 +83,5 @@ def SDESDecryption(plain_text, key):
     PT = apply_table(temp, IP_inv)
     return PT, key
 
-
-print(SDESEncryption('10111001', '1101111101'))
-print(SDESDecryption('10100001', '1101111101'))
+# print(SDESEncryption('10111001', '1101111101'))
+# print(SDESDecryption('10100001', '111111111100'))

@@ -2,7 +2,7 @@ from pyDes import CBC, PAD_PKCS5, triple_des
 import binascii
 
 
-def DESEncrypt(s, key):
+def TDESEncrypt(s, key):
     """
          Cifrado DES
          : param s: cadena sin procesar
@@ -14,7 +14,7 @@ def DESEncrypt(s, key):
     return binascii.b2a_hex(en), key
 
 
-def DESDecrypt(s, key):
+def TDESDecrypt(s, key):
     """
          Descifrado DES
          : param s: cadena encriptada, hexadecimal
@@ -25,6 +25,5 @@ def DESDecrypt(s, key):
     de = k.decrypt(binascii.a2b_hex(s), padmode=PAD_PKCS5)
     return de, key
 
-
-print(DESEncrypt('HOLAMUNDO', 'ABCDEFGHDLKEGYTOLAKTREOP'))
-print(DESDecrypt('4540bde09edfbe27bf554f494a56f2ce', 'ABCDEFGHDLKEGYTOLAKTREOP'))
+# print(TDESEncrypt('HOLAMUNDO', 'ABCDEFGHDLKEGYTOLAKTREOP'))
+# print(TDESDecrypt('4540bde09edfbe27bf554f494a56f2ce', 'ABCDEFGHDLKEGYTOLAKTREOP'))
