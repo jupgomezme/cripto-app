@@ -7,9 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png">
 
     <title>Crypto App</title>
 </head>
@@ -84,99 +83,38 @@
         </div>
     </nav>
 
-<div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="col card container mt-3">
-            <div class="card-body">
-                <h3 class="card-title text-center mb-4">Hill Analysis</h3>
-                <div class="row d-flex justify-content-center">
-                    <form id="myForm" class="w-50">
-                        <div class="mb-3">
+    <h1 class="mt-3 text-center">New applications</h1>
 
-                            <label for="inputText" class="form-label">Text</label>
-                            <input type="text" class="form-control" id="inputText"
-                                   aria-describedby="textHelp" style="text-transform:uppercase">
-                            <div id="textHelp" class="form-text pb-3">Please introduce some text to encrypt using hill
-                                algorithm.
-                            </div>
-
-                            <label for="encryptedText" class="form-label">Encrypted Text</label>
-                            <input type="text" class="form-control" id="encryptedText"
-                                   aria-describedby="textHelp" style="text-transform:uppercase">
-                            <div id="textHelp" class="form-text pb-3">Please introduce the previous text encrypted with
-                                hill algorithm.
-                            </div>
-
-                            <label for="matrixSize" class="form-label">Matrix Size</label>
-                            <input type="number" class="form-control" id="matrixSize"
-                                   aria-describedby="textHelp" style="text-transform:uppercase">
-                            <div id="textHelp" class="form-text">Please introduce your guess for the matrix size of the
-                                key.
-                            </div>
-
-                        </div>
-                        <div class="text-center">
-                            <button id="submitButtonEncrypt" type="button"
-                                    class="btn btn-primary justify-content-center">Analyze
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div id="encryptionResultsDiv" class="row mt-5" style="display: none;">
-                    <hr>
-                    <h4 class="card-subtitle mt-2 mb-4 text-center">Results</h4>
-                    <p><b>Key: </b><span id="cardEncryptionKey"></span></p>
-                </div>
-            </div>
+    
+    <div class="container">
+        <div class="row">
+            <p class="card-text" class="text-align">
+                <ul class="list-group">
+                    <li>Molecular computing was introduced by Leonard Adleman in 1994. It is a multidisciplinary effort of Mathematicians, Biochemists and Biologists, who use DNA to code NP problems and produce their solutions (the traveling agent problem). The algorithms involved use enzymes such as polymerase or ligase. One of the applications found for this type of calculation consisted in determining the key space of a DES cryptographic system.</li>
+                    <li>The RSA system is based on the impossibility of finding an efficient algorithm to factor large numbers. This problem has been one of the greatest paradigms of science and its solution will produce a remarkable technological advance for humanity. For example, computer security based on RSA will have to be completely changed. Especially the generation of digital signatures.</li>
+                    <li>The idea of quantum computing was introduced by Richard Feynman in 1982. A quantum computer uses qubits in a controlled initial state that represent a problem and manipulates them through logic gates. The calculation ends once the measurement of all states collapses each qubit to one of two pure states. The problem of factoring large numbers is efficiently solved in a quantum computer.</li>
+                    <li>Post-quantum cryptography originates with the introduction of Shor's algorithm, which solves the integer factorization problem using a quantum computer. At present, lattice-based cryptography and the solution of systems of multivariate equations is considered post-quantum. In it, difficult-to-solve problems associated with these structures allow the construction and analysis of public-key cryptographic systems.</li>
+                  </ul>
+            </p>
         </div>
     </div>
+    
+    <div class="text-center">
+        <img src="../assets/cripto.jpg" height="300" width="220" class="img-fluid" class="rounded" alt="Vale">
+    </div>
 
-    <div class="row">
-        <div class="card container">
-            <div class="card-body">
-                <h5 class="card-title">
-                    How does it work?
-                </h5>
-                <p>Let’s analyze the text C F W F B B B A T I Z V T which decrypted is C R Y P T O G R A P H Y assuming
-                    <span class="math inline"><em>m</em> = 2</span> since it is the first order of a matrix used for
-                    Hill’s cipher. First we transform it to numbers to obtain 3 5 22 5 1 1 0 19 8 25 25 21 19. If we
-                    separate the text into blocks, from the second and third blocks we have <span
-                            class="math inline"><em>e</em><sub><em>k</em></sub>(19,14) = (1,1)</span>, <span
-                            class="math inline"><em>e</em><sub><em>k</em></sub>(24,15) = (22,5)</span> and thus obtain
-                    the matrix equation <span class="math display">$$\begin{bmatrix}
-                        22 &amp; 5\\
-                        1 &amp; 1
-                    \end{bmatrix}= \begin{bmatrix}
-                        24 &amp; 15\\
-                        19 &amp; 14
-                    \end{bmatrix} K$$</span> where we can calculate without difficulty but with great care with the
-                    equivalences modulo 26 <span class="math display">$$\begin{split}K=
-                    \begin{bmatrix}
-                        19 &amp; 4\\
-                        23 &amp; 19
-                    \end{bmatrix}
-                \end{split}$$</span> Corresponding to the keyword “text" .</p>
-            </div>
+
+    
+    <footer class="bg-light text-center text-lg-start mt-auto">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2021 Copyright
         </div>
-    </div>
+        <!-- Copyright -->
+    </footer>
 
-</div>
-
-<div class="mt-5"></div>
-
-<footer class="bg-light text-center text-lg-start mt-auto">
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2021 Copyright
-    </div>
-    <!-- Copyright -->
-</footer>
-
-<!-- Option 1: Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-<script src="../scripts/hillAnalysis.js"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>
 
