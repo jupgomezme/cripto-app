@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 
@@ -131,11 +131,18 @@ def update():
 
 @app.post("/img", response_class=FileResponse)
 async def create_file(
-        file: UploadFile = File(...)
+        file: UploadFile = File(...),
+        action: str = Form(...)
 ):
     file_name = file.filename
     save_file(file)
     finalHillImage(file_name)
-    encoded_file_name = get_file_name_extended(file_name)
 
-    return data_path + encoded_file_name
+    if action == "cipher":
+        output_file_name = get_file_name_extended(file_name)
+    elif action == "decipher":
+        output_file_name = get_file_name_extended(file_name, extended_part="-decoded")
+    else:
+        raise Exception("Wrong action!")
+
+    return data_path + output_file_name
