@@ -37,11 +37,14 @@ def affineEncryptionNoKey(plain_text):
 def affineDecryptionWithKey(plain_text, key):
     encrypted_text = plain_text
     decrypted_text = ''
-    for i in range(len(encrypted_text)):
-        if plain_text[i] == ' ':
-            decrypted_text += ' '
-        else:
-            position = letters.find(encrypted_text[i])
-            new_position = (int(pow(key[0], -1, 26)) * (position - key[1])) % 26
-            decrypted_text += letters[new_position]
-    return decrypted_text, key
+    try:
+        for i in range(len(encrypted_text)):
+            if plain_text[i] == ' ':
+                decrypted_text += ' '
+            else:
+                position = letters.find(encrypted_text[i])
+                new_position = (int(pow(key[0], -1, 26)) * (position - key[1])) % 26
+                decrypted_text += letters[new_position]
+        return decrypted_text, key
+    except ValueError:
+            return 'Invalid key'
