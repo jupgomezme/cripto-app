@@ -9,10 +9,12 @@ from pydantic import BaseModel
 
 import subprocess
 
+from AESImage import finalAESImage
 from DES import DESEncrypt, DESDecrypt
 from DESImage import finalDESImage
 from SDES import SDESEncryption, SDESDecryption
 from TDES import TDESEncrypt, TDESDecrypt
+from TDESImage import finalTDESImage
 from displacement import cesarEncryptionWithKey, cesarDecryptionWithKey, cesarEncryptionNoKey, cesarDecryptionNoKey
 from hillImage import finalHillImage
 from randomHelper import generate_random_string, generate_random_binary_string
@@ -170,8 +172,7 @@ def update():
 async def process_image(
         file: UploadFile = File(...),
         algorithm: str = Form(...),
-        action: str = Form(...),
-        key: Optional[str] = Form(...)
+        action: str = Form(...)
 ):
     file_name = file.filename
     save_file(file)
@@ -179,14 +180,24 @@ async def process_image(
     if algorithm == "hill":
         finalHillImage(file_name)
     elif algorithm == "des":
-        finalDESImage(file_name, key)
+        finalDESImage(file_name, generate_random_string())
+    elif algorithm == "3des":
+        finalTDESImage(file_name)
+    elif algorithm == "aes":
+        finalAESImage(file_name)
     else:
         raise Exception("Wrong algorithm!")
 
     if action == "cipher":
-        output_file_name = "encoded_" + file_name
+        if algorithm == "aes":
+            output_file_name = "encrypted.enc"
+        else:
+            output_file_name = "encoded_" + file_name
     elif action == "decipher":
-        output_file_name = "decoded_" + file_name
+        if algorithm == "aes":
+            output_file_name = "output.jpg"
+        else:
+            output_file_name = "decoded_" + file_name
     else:
         raise Exception("Wrong action!")
 

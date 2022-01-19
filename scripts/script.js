@@ -1,5 +1,5 @@
-const API_ENDPOINT = "http://0.0.0.0:8000/";
-// const API_ENDPOINT = "http://54.156.2.139:8000/";
+// const API_ENDPOINT = "http://0.0.0.0:8000/";
+const API_ENDPOINT = "http://54.156.2.139:8000/";
 
 const lettersAndSpace = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ '
 const numbersAndComma = "0123456789,"
@@ -336,6 +336,10 @@ const onClickButton = (algorithm, action) => {
 
 
 const runScript = (algorithm) => {
+
+    if (algorithm === "aes") {
+        return;
+    }
 
     let decipherOrAnalyze = "decipher";
     if (!algorithm.includes("Analysis")) {

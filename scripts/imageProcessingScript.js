@@ -3,6 +3,7 @@ const imageResultsDiv = document.getElementById("imageResultsDiv");
 const encodedImg = document.getElementById("encodedImg");
 const encodedBtn = document.getElementById("encodedBtn");
 const decodedImg = document.getElementById("decodedImg");
+const keyImageInput = document.getElementById("keyImageInput");
 
 const sendImageRequest = (body) =>
     new Promise((resolve, reject) => {
@@ -20,19 +21,29 @@ const onFileUpload = (algorithm) => {
     return () => {
         imageResultsDiv.style.display = 'none'
         const inputFile = imageInput.files[0]
-        const file_name  = inputFile.name;
+        const file_name = inputFile.name;
 
         const bodyFormDataEncode = new FormData();
         bodyFormDataEncode.append('file', inputFile);
         bodyFormDataEncode.append('action', 'cipher');
         bodyFormDataEncode.append('algorithm', algorithm);
-        bodyFormDataEncode.append('key', '0');
 
         const bodyFormDataDecode = new FormData();
         bodyFormDataDecode.append('file', inputFile);
         bodyFormDataDecode.append('action', 'decipher');
         bodyFormDataDecode.append('algorithm', algorithm);
-        bodyFormDataDecode.append('key', '0');
+
+        let fakeKey;
+        if (algorithm === "des" || algorithm === "3des") {
+            fakeKey = keyImageInput.value.toUpperCase();
+            if (fakeKey) {
+                const keyImageChecker = getKeyChecker(algorithm);
+                if (!keyImageChecker(fakeKey)) {
+                    alert("Please introduce a Valid key");
+                    return;
+                }
+            }
+        }
 
         sendImageRequest(bodyFormDataEncode)
             .then((results) => {
@@ -44,7 +55,12 @@ const onFileUpload = (algorithm) => {
                     encodedImg.src = objectUrl;
                 } else {
                     encodedBtn.href = objectUrl;
-                    encodedBtn.download = "encoded_" + file_name;
+                    if (algorithm === "aes") {
+                        encodedBtn.download = "encrypted.enc";
+                    } else {
+                        encodedBtn.download = "encoded_" + file_name;
+                    }
+
                 }
                 return sendImageRequest(bodyFormDataDecode)
             })

@@ -2,6 +2,7 @@ from Crypto.Cipher import DES
 from Crypto.Hash import SHA256
 from getpass import getpass
 from Crypto.Protocol.KDF import PBKDF2
+from file_helper import data_path
 
 salt_const = b"$ez*}-d3](%d%$#*!)$#%s45le$*fhucdivyanshu75456dgfdrrrrfgfs^"
 pi = 100005
@@ -10,7 +11,7 @@ pi = 100005
 def encrypt3DESImage(path, key):
     # opening the image file
 
-    with open(path, 'rb') as imagefile:
+    with open(data_path + path, 'rb') as imagefile:
         image = imagefile.read()
 
     # padding
@@ -34,14 +35,15 @@ def encrypt3DESImage(path, key):
     ciphertext3 += hash_of_original.digest()
 
     # Saving the file encrypted
-    dpath = "encrypted_" + path
+    dpath = data_path + "encoded_" + path
     with open(dpath, 'wb') as image_file:
         image_file.write(ciphertext3)
     return key
 
 
-def decrypt3DESImage(encrypted_image_path, key):
-    with open(encrypted_image_path, 'rb') as encrypted_file:
+def decrypt3DESImage(image_path, key):
+    encrypted_image_path = "encoded_" + image_path
+    with open(data_path + encrypted_image_path, 'rb') as encrypted_file:
         encrypted_data_with_hash = encrypted_file.read()
 
     key_dec = key
@@ -65,12 +67,12 @@ def decrypt3DESImage(encrypted_image_path, key):
     hash_of_decrypted = SHA256.new(data=plaintext3)
 
     # saving the decrypted file
-    epath = 'decoded_' + encrypted_image_path
+    epath = data_path + 'decoded_' + image_path
     with open(epath, 'wb') as image_file:
         image_file.write(plaintext3)
     return key
 
 
-a = encrypt3DESImage('data/lena.jpg', 'aBcdefghfegrds54')
-print(a)
-b = decrypt3DESImage('encrypted_lena.jpg', 'aBcdefghfegrds54')
+def finalTDESImage(file_name):
+    encrypt3DESImage(file_name, 'aBcdefghfegrds54')
+    decrypt3DESImage(file_name, 'aBcdefghfegrds54')
