@@ -161,7 +161,7 @@ const getKeyChecker = (algorithm) => {
         case 'vigenere':
         case 'hill':
         case 'hillAnalysis':
-            return textChecker
+            return alphabetLikeChecker
         case 'des':
             return stringFixedLengthsChecker([8])
         case '3des':
