@@ -39,6 +39,3 @@ def decryptImageAES(enc, key, iv, file_name):
 def finalAESImage(file_name):
     a = encryptImageAES(file_name)
     decryptImageAES("encrypted.enc", a[0], a[1], file_name)
-
-
-finalAESImage("lena.jpeg")
