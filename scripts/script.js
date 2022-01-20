@@ -307,7 +307,7 @@ const onClickButton = (algorithm, action) => {
                     break
                 case "decipher":
                     if (!key || !keyChecker(key)) {
-                        alert("Please introduce a valid key!")
+                        alert("Please introduce a valid key!!")
                         return;
                     }
                     break
