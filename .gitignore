@@ -51,3 +51,6 @@ backend/data/*
 .DS_Store
 
 backend/local_data/*
+
+test.tex
+test.html
