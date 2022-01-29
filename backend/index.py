@@ -13,7 +13,7 @@ import subprocess
 from AESImage import finalAESImage
 from DES import DESEncrypt, DESDecrypt
 from DESImage import finalDESImage
-from ELGAMMAL import ElGammalEncryption, ElGammalDecryption
+from el_gamal import ElGamalEncryption, ElGamalDecryption
 from RSA import RSAEncryption, RSADecryption
 from SDES import SDESEncryption, SDESDecryption
 from TDES import TDESEncrypt, TDESDecrypt
@@ -87,7 +87,7 @@ def read_root(item: Item):
 
     elif algorithm == "permutation":
         if key or str(key) == "0":
-            key = json.loads(key)
+            key = [int(element) for element in key.split(",")]
             if action == "cipher":
                 data_processed = permutationEncryptionWithKey(data, key)
             elif action == "decipher":
@@ -173,13 +173,15 @@ def read_root(item: Item):
         elif action == "decipher":
             data_processed = RSADecryption(data)
 
-    elif algorithm == "elgammal":
+    elif algorithm == "el_gamal":
         if action == "cipher":
-            data_processed = ElGammalEncryption(data)
+            data_processed = ElGamalEncryption(data)
         elif action == "decipher":
-            key = json.loads(key)
-            data = json.loads(data)
-            data_processed = ElGammalDecryption(data, key)
+            # key = json.loads(key)
+            key = [int(element) for element in key.split(",")]
+            # data = json.loads(data)
+            data = [int(element) for element in data.split(",")]
+            data_processed = ElGamalDecryption(data, key)
 
     else:
         return {

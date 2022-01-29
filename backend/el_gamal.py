@@ -5,6 +5,14 @@ from math import pow
 a = random.randint(2, 10)
 
 
+def list_to_string(list_):
+    return [str(element) for element in list_]
+
+
+def list_to_int(list_):
+    return [int(element) for element in list_]
+
+
 def gcd(a, b):
     if a < b:
         return gcd(b, a)
@@ -67,24 +75,26 @@ q = random.randint(pow(10, 20), pow(10, 50))
 g = random.randint(2, q)
 
 
-def ElGammalEncryption(plain_text):
+def ElGamalEncryption(plain_text):
     key = gen_key(q)  # Private key for receiver
     h = power(g, key, q)
     en_msg, p = encrypt(plain_text, q, h, g)
+    en_msg = list_to_string(en_msg)
+    key, p = list_to_string([key, p])
     return en_msg, (key, p)
 
 
-def ElGammalDecryption(plain_text, key_and_p):
-    key, p = key_and_p
+def ElGamalDecryption(plain_text, key_and_p):
+    plain_text = list_to_int(plain_text)
+    key, p = list_to_int(key_and_p)
     dr_msg = decrypt(plain_text, p, key, q)
     dmsg = ''.join(dr_msg)
+    key, p = list_to_string([key, p])
     return dmsg, (key, p)
 
-
-# a = ElGammalEncryption('HELLOWORLD')
+#
+# a = ElGamalEncryption('HELLO WORLD')
 # print(a[0])
 # print(a[1])
-# b = ElGammalDecryption(a[0], a[1])
+# b = ElGamalDecryption(a[0], a[1])
 # print(b)
-
-

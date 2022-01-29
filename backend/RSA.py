@@ -50,14 +50,14 @@ def RSAEncryption(plain_text):
     cipher_rsa = PKCS1_OAEP.new(public_key)
     enc_data = cipher_rsa.encrypt(plain_text.encode())
     enc_data = str(bytes_to_long(enc_data))
-    return enc_data, ""
+    return enc_data, private_key_string
 
 
 def RSADecryption(plain_text):
     plain_text = long_to_bytes(int(plain_text))
     decipher_rsa = PKCS1_OAEP.new(private_key)
     dec_data = decipher_rsa.decrypt(plain_text)
-    return dec_data.decode(), ""
+    return dec_data.decode(), private_key_string
 
 # def showPublicKey(keys):
 #     return keys.publickey().export_key(key_format).decode()

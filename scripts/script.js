@@ -43,6 +43,32 @@ const alphabetLikeChecker = (allegedValidText) => {
 
 }
 
+const numbersChecker = (allegedValidNumbers) => {
+
+    for (let i = 0; i < allegedValidNumbers.length; i++) {
+        const char = allegedValidNumbers[i]
+        if (!numbersAndComma.includes(char)) {
+            return false
+        }
+    }
+
+    return true
+
+}
+
+const alphabetWithoutSpaceChecker = (allegedValidText) => {
+
+    for (let i = 0; i < allegedValidText.length; i++) {
+        const char = allegedValidText[i]
+        if (!letters.includes(char)) {
+            return false
+        }
+    }
+
+    return true
+
+}
+
 const stringChecker = (allegedValidString) => {
 
     for (let i = 0; i < allegedValidString.length; i++) {
@@ -149,6 +175,27 @@ const stringFixedLengthsChecker = (lengths) => {
     }
 }
 
+const alphabetSubPermutationChecker = (permutation) => {
+    let allegedKey;
+    try {
+        allegedKey = permutation.split(",").map((element) => {
+            return parseInt(element)
+        });
+    } catch (error) {
+        return false;
+    }
+    allegedKey.sort();
+    if (allegedKey[0] !== 0) {
+        return false
+    }
+    for (let i = 1; i < allegedKey.length; i++) {
+        if (allegedKey[i] !== allegedKey[i - 1] + 1) {
+            return false
+        }
+    }
+    return true
+}
+
 const getKeyChecker = (algorithm) => {
     switch (algorithm) {
         case 'displacement':
@@ -156,6 +203,8 @@ const getKeyChecker = (algorithm) => {
             return integerMod26Checker
         case 'substitution':
             return alphabetChecker
+        case 'permutation':
+            return alphabetSubPermutationChecker
         case 'affine':
             return pairIntegersMod26Checker
         case 'vigenere':
@@ -168,6 +217,9 @@ const getKeyChecker = (algorithm) => {
             return stringFixedLengthsChecker([16, 24])
         case 'sdes':
             return binaryStringChecker
+        case 'rsa':
+        case 'el_gamal':
+            return numbersChecker;
         default:
             throw new Error("Wrong algorithm!")
     }
@@ -181,6 +233,12 @@ const getTextChecker = (algorithm, action) => {
             else return stringChecker
         case 'sdes':
             return binaryStringChecker
+        case 'permutation':
+            return alphabetWithoutSpaceChecker
+        case 'rsa':
+        case 'el_gamal':
+            if (action === "cipher") return stringWithSpaceChecker
+            else return numbersChecker
         default:
             return alphabetLikeChecker
     }
