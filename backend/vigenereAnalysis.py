@@ -45,3 +45,5 @@ def breakVigenereEncryption(plain_text):
     for element in segments:
         key += letters[breakCesarEncryption(element)]
     return key
+
+breakVigenereEncryption('HOLAMUNDO')

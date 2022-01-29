@@ -48,3 +48,6 @@ def affineDecryptionWithKey(plain_text, key):
         return decrypted_text, key
     except ValueError:
             return 'Invalid key'
+
+print(affineEncryptionWithKey('HELLOWORLD',[3,14]))
+print(affineDecryptionWithKey('JAVVECENVX',[3,14]))
