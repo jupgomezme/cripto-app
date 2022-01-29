@@ -1,4 +1,5 @@
 import random
+import json
 
 from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
@@ -12,11 +13,14 @@ import subprocess
 from AESImage import finalAESImage
 from DES import DESEncrypt, DESDecrypt
 from DESImage import finalDESImage
+from ELGAMMAL import ElGammalEncryption, ElGammalDecryption
+from RSA import RSAEncryption, RSADecryption
 from SDES import SDESEncryption, SDESDecryption
 from TDES import TDESEncrypt, TDESDecrypt
 from TDESImage import finalTDESImage
 from displacement import cesarEncryptionWithKey, cesarDecryptionWithKey, cesarEncryptionNoKey, cesarDecryptionNoKey
 from hillImage import finalHillImage
+from permutation import permutationEncryptionWithKey, permutationDecryptionWithKey, permutationEncryptionNoKey
 from randomHelper import generate_random_string, generate_random_binary_string
 from substitution import sustitutionEncryptionWithKey, sustitutionEncryptionNoKey, sustitutionDecryptionWithKey
 from affine import affineEncryptionWithKey, affineEncryptionNoKey, affineDecryptionWithKey
@@ -80,6 +84,17 @@ def read_root(item: Item):
         else:
             if action == "cipher":
                 data_processed = sustitutionEncryptionNoKey(data)
+
+    elif algorithm == "permutation":
+        if key or str(key) == "0":
+            key = json.loads(key)
+            if action == "cipher":
+                data_processed = permutationEncryptionWithKey(data, key)
+            elif action == "decipher":
+                data_processed = permutationDecryptionWithKey(data, key)
+        else:
+            if action == "cipher":
+                data_processed = permutationEncryptionNoKey(data)
 
     elif algorithm == "affine":
         if key:
@@ -151,6 +166,20 @@ def read_root(item: Item):
         else:
             if action == "cipher":
                 data_processed = SDESEncryption(data, generate_random_binary_string(16))
+
+    elif algorithm == "rsa":
+        if action == "cipher":
+            data_processed = RSAEncryption(data)
+        elif action == "decipher":
+            data_processed = RSADecryption(data)
+
+    elif algorithm == "elgammal":
+        if action == "cipher":
+            data_processed = ElGammalEncryption(data)
+        elif action == "decipher":
+            key = json.loads(key)
+            data = json.loads(data)
+            data_processed = ElGammalDecryption(data, key)
 
     else:
         return {

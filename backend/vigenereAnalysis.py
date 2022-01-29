@@ -46,4 +46,4 @@ def breakVigenereEncryption(plain_text):
         key += letters[breakCesarEncryption(element)]
     return key
 
-breakVigenereEncryption('HOLAMUNDO')
+# breakVigenereEncryption('HOLAMUNDO')
