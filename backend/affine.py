@@ -47,4 +47,7 @@ def affineDecryptionWithKey(plain_text, key):
                 decrypted_text += letters[new_position]
         return decrypted_text, key
     except ValueError:
-            return 'Invalid key'
+        return 'Invalid key'
+
+
+print(affineDecryptionWithKey("JEVOYWBXE", [3, 14]))
