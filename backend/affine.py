@@ -50,7 +50,7 @@ def affineDecryptionWithKey(plain_text, key):
         return 'Invalid key'
 
 
-print(affineDecryptionWithKey("JEVOYWBXE", [3, 14]))
+# print(affineDecryptionWithKey("JEVOYWBXE", [3, 14]))
 
 
 
