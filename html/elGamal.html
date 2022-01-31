@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 
@@ -19,7 +18,7 @@
 
 <nav class="navbar navbar-expand-lg navbar navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="../index.html">Crypto App</a>
+        <a class="navbar-brand" href="index.html">Crypto App</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -85,6 +84,16 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="rsa.html">RSA</a></li>
                             <li><a class="dropdown-item" href="elGamal.html">ElGamal</a></li>
+                            <li><a class="dropdown-item" href="rabin.html">Rabin</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Signature Schemes
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="rsasignature.html">RSA</a></li>
+                            <li><a class="dropdown-item" href="elgammalsignature.html">ElGamal</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -167,6 +176,31 @@
             <div class="card-body">
                 <h5 class="card-title">Explanation</h5>
                 <h6 class="card-subtitle mb-2 text-muted">How does this work?</h6>
+                <p>The ElGammal cryptographic system, named after its creator Taher Elgammal who described the method in 1984, is an asymmetric key cryptographic system and broadly works in the same way as the RSA cryptosystem. In this case we define it as follows:</p>
+                <p>Let <span class="math inline"><em>p</em></span> be a prime such that the discrete logarithm problem in <span class="math inline">(ℤ<sub><em>n</em></sub><sup>*</sup>,⋅)</span> is infeasible to solve, <span class="math inline"><em>α</em> ∈ ℤ<sub><em>n</em></sub><sup>*</sup></span> a primitive element, <span class="math inline">𝒫 = ℤ<sub><em>n</em></sub><sup>*</sup></span> and <span class="math inline">𝒞 = ℤ<sub><em>n</em></sub><sup>*</sup> × ℤ<sub><em>n</em></sub><sup>*</sup></span> we define the set of keys <span class="math inline">𝒦</span> as 
+                    <p class="text-center"><span
+                        class="math display">𝒦 = { (<em>p</em>,<em>α</em>,<em>a</em>,<em>β</em>) : <em>β</em>≡<em>α</em><sup><em>a</em></sup> mod  <em>p</em>}</span></p>
+                    The values <span class="math inline"><em>p</em></span>, <span class="math inline"><em>α</em></span> and <span class="math inline"><em>β</em></span> are the public key and <span class="math inline"><em>a</em></span> is the private key. For <span class="math inline"><em>K</em> = (<em>p</em>,<em>α</em>,<em>a</em>,<em>β</em>)</span> and a secret random number <span class="math inline"><em>k</em> ∈ ℤ<sub><em>n</em></sub><sup>*</sup></span>, we define</p> 
+                    <p class="text-center"><span class="math display"><em>e</em><sub><em>K</em></sub>(<em>x</em>,<em>k</em>) = (<em>y</em><sub>1</sub>,<em>y</em><sub>2</sub>)</span></p>
+                    where 
+                    <p class="text-center"><span class="math display"><em>y</em><sub>1</sub> = <em>α</em><sup><em>k</em></sup> mod  <em>p</em>      <em>y</em><sub>2</sub> = <em>x</em><em>β</em><sup><em>k</em></sup> mod  <em>p</em></span></p>
+                    for <span class="math inline"><em>y</em><sub>1</sub>, <em>y</em><sub>2</sub> ∈ ℤ<sub><em>n</em></sub><sup>*</sup></span> we will define 
+                    <p class="text-center"><span class="math display"><em>d</em><sub><em>K</em></sub> ( <em>y</em><sub>1</sub>, <em>y</em><sub>2</sub> ) = <em>y</em><sub>2</sub> (<em>y</em><sub>1</sub><sup><em>a</em></sup>) <sup>−1</sup> mod  <em>p</em></span></p>
+                <br>
+                <p><strong>Example.</strong> Let’s encrypt the plaintext in numbers 348754, we randomly generate <span class="math inline"><em>p</em> = 549607 &gt; <em>x</em></span>, <span class="math inline"><em>a</em><em>l</em><em>p</em><em>h</em><em>a</em> = 11</span> and <span class="math inline"><em>a</em> = 728398</span>. We now calculate <span class="math inline"><em>b</em><em>e</em><em>t</em><em>a</em></span> as follows: 
+                <p class="text-center"><span class="math display"><em>β</em> = <em>α</em><sup><em>a</em></sup> mod  <em>p</em> = 11<sup>728398</sup> mod  549607 = 436137</span></p>
+                So the public key is <span class="math inline">(549607,11,436137)</span>. Now we choose a secret random number <span class="math inline"><em>k</em> ∈ ℤ<sub><em>n</em></sub><sup>*</sup></span> such that <span class="math inline">2 ≤ <em>k</em> ≤ <em>p</em> − 1</span>, in this case we do <span class="math inline"><em>k</em> = 794</span>, so that </p>
+                <p class="text-center"><span class="math display">y<sub>1</sub>=α<sup><em>k</em></sup> mod <em>p</em>=11<sup>794</sup>=58468</span></p> 
+                <p class="text-center"><span class="math display">y<sub>2</sub>=<em>x</em> <em>β</em><sup><em>k</em></sup>=(348754)(436137)<sup>794</sup>=35325</span></p>
+                Thus the ciphertext is <span class="math inline">(58468,35325)</span>.</p>
+                <p>To decipher we do: 
+                    
+                <p class="text-center"><span class="math display"><em>d</em><sub><em>K</em></sub>(<em>y</em><sub>1</sub>,<em>y</em><sub>2</sub>) = <em>y</em><sub>2</sub>(<em>y</em><sub>1</sub><sup><em>a</em></sup>)<sup>−1</sup> mod  <em>p</em></span></p>
+                <p class="text-center"><span class="math display"><em>d</em><sub><em>K</em></sub>(<em>y</em><sub>1</sub>,<em>y</em><sub>2</sub>) = 35325((58468)<sup>728398</sup>)<sup>−1</sup> mod  549607</span></p>
+                <p class="text-center"><span class="math display"><em>d</em><sub><em>K</em></sub>(<em>y</em><sub>1</sub>,<em>y</em><sub>2</sub>) = 35325(496141)<sup>−1</sup> mod  549607</span></p>
+                <p class="text-center"><span class="math display"><em>d</em><sub><em>K</em></sub>(<em>y</em><sub>1</sub>,<em>y</em><sub>2</sub>) = 35325 * 280889 mod  549607</span></p>
+                <p class="text-center"><span class="math display"><em>d</em><sub><em>K</em></sub>(<em>y</em><sub>1</sub>,<em>y</em><sub>2</sub>) = 348754</span></p>
+                </span> Which in effect is the text <span class="math inline"><em>x</em></span> that we encrypted in the first part of the example.</p>
 
                 <p class="card-text">
 
