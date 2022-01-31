@@ -36,7 +36,10 @@ def decryption(a, p, q):
         y = (r * d * q - s * c * p) % n
         lst = [x, n - x, y, n - y]
         plain_text = choose(lst)
-        string = bin(plain_text)
+        if plain_text != None:
+            string = bin(plain_text)
+        else:
+            return 'Something bad ocurred'
         string = string[:-16]
         plain_text = int(string, 2)
     except ValueError:
@@ -47,16 +50,18 @@ def decryption(a, p, q):
 
 # decide which answer to choose
 def choose(lst):
-
-    for i in lst:
-        binary = bin(i)
-
-        append = binary[-16:]   # take the last 16 bits
-        binary = binary[:-16]   # remove the last 16 bits
-
-        if append == binary[-16:]:
-            return i
-    return
+    try: 
+        for i in lst:
+            binary = bin(i)
+    
+            append = binary[-16:]   # take the last 16 bits
+            binary = binary[:-16]   # remove the last 16 bits
+    
+            if append == binary[-16:]:
+                return i
+    except ValueError:
+        return 'Something bad ocurred'
+    return 
 
 # Find SQROOT in Zp where p = 3 mod 4
 def sqrt_p_3_mod_4(a, p):
@@ -94,12 +99,15 @@ while True:
         if ((p % 4)==3): break
 
 n = p*q
-msg="helloworldmotherfuckers!"
+msg="helloworldmotherfuckers!jajaaj"
 plain_text =  bytes_to_long(msg.encode('utf-8'))
     
 ciphertext = encryption(plain_text, n)
 print(ciphertext[0])
 
 plaintext = decryption(ciphertext[0], p, q)
-st=format(plaintext[0], 'x')
-print(bytes.fromhex(st).decode())
+try:
+    st=format(plaintext[0], 'x')
+    print(bytes.fromhex(st).decode())
+except ValueError:
+    print('Something bad ocurred, try again')
