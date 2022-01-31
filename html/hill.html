@@ -219,16 +219,6 @@
 
                 <p class="card-text">
 
-                    <div class="bmatrix">
-                        <p>1 &amp; 2<br />
-                        2 &amp; 3</p>
-                        </div>
-                        <p>=</p>
-                        
-                    
-                <br>
-
-
                 <p>For a fixed <span class="math inline"><em>m</em></span> in this cryptosystem
                     <span class="math inline">𝒫 = 𝒞 = ℤ<sub>26</sub><sup><em>m</em></sup></span> y <span
                             class="math inline">
@@ -252,22 +242,15 @@
                 the letters to their number equivalents in <span class="math inline">ℤ<sub>26</sub></span>, for the
                 keyword “aborigins"
                 the key matrix is:
-                <span class="math display">$$\begin{bmatrix}
-                            a &amp; b &amp; o\\
-                            r &amp; i &amp; g\\
-                            i &amp; n &amp; s
-                        \end{bmatrix}=
-                        \begin{bmatrix}
-                            0 &amp; 1 &amp; 14\\
-                            17 &amp; 8 &amp; 6\\
-                            8 &amp; 13 &amp; 18
-                        \end{bmatrix}$$</span></p>
-                <br>
+                <div class="text-center">
+                    <img src="../assets/Hill1.png" class="img-fluid" class="rounded" alt="Vale">
+                </div>
                 <p><strong>Example:</strong> We are going to encrypt a famous phrase by Albert Einstein “Light is the
-                    shadow of God" with the key <span class="math inline">$k=\begin{matrix}
-                        1 &amp; 2\\
-                        2 &amp; 3
-                        \end{matrix}$</span> first we must organize the text data in clear text.</p>
+                    shadow of God" with the key 
+                    <div class="text-center">
+                        <img src="../assets/Hill1.5.png" class="img-fluid" class="rounded" alt="Vale">
+                    </div>
+                    first we must organize the text data in clear text.</p>
                 <div class="center">
                     <table class="table table-striped">
                         <tbody>
@@ -320,50 +303,9 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="multicols">
-                    <ul>
-                        <li><p><span
-                            class="math inline">\(\left[11\hspace{2mm}8\right]\begin{bmatrix}1 &amp;
-                            2 \\ 2 &amp; 3 \end{bmatrix}=\left[27\hspace{2mm}46\right]\mod
-                            26=\left[1\hspace{2mm}20\right]\)</span></p></li>
-                        <li><p><span
-                            class="math inline">\(\left[6\hspace{2mm}7\right]\begin{bmatrix}1 &amp;
-                            2 \\ 2 &amp; 3 \end{bmatrix}=\left[20\hspace{2mm}33\right]\mod
-                            26=\left[20\hspace{2mm}7\right]\)</span></p></li>
-                        <li><p><span
-                            class="math inline">\(\left[19\hspace{2mm}8\right]\begin{bmatrix}1 &amp;
-                            2 \\ 2 &amp; 3 \end{bmatrix}=\left[35\hspace{2mm}62\right]\mod                                26=\left[9\hspace{2mm}10\right]\)</span></p></li>
-                        <li><p><span
-                            class="math inline">\(\left[18\hspace{2mm}19\right]\begin{bmatrix}1
-                            &amp; 2 \\ 2 &amp; 3 \end{bmatrix}=\left[56\hspace{2mm}93\right]\mod
-                            26=\left[4\hspace{2mm}15\right]\)</span></p></li>
-                        <li><p><span
-                            class="math inline">\(\left[7\hspace{2mm}4\right]\begin{bmatrix}1 &amp;
-                            2 \\ 2 &amp; 3 \end{bmatrix}=\left[15\hspace{2mm}26\right]\mod
-                            26=\left[15\hspace{2mm}0\right]\)</span></p></li>
-                        <li><p><span
-                            class="math inline">\(\left[18\hspace{2mm}7\right]\begin{bmatrix}1 &amp;
-                            2 \\ 2 &amp; 3 \end{bmatrix}=\left[32\hspace{2mm}57\right]\mod
-                            26=\left[6\hspace{2mm}5\right]\)</span></p></li>
-                        <li><p><span
-                            class="math inline">\(\left[0\hspace{2mm}3\right]\begin{bmatrix}1 &amp;
-                            2 \\ 2 &amp; 3 \end{bmatrix}=\left[6\hspace{2mm}9\right]\mod
-                            26=\left[6\hspace{2mm}9\right]\)</span></p></li>
-                        <li><p><span
-                            class="math inline">\(\left[14\hspace{2mm}22\right]\begin{bmatrix}1
-                            &amp; 2 \\ 2 &amp; 3 \end{bmatrix}=\left[58\hspace{2mm}94\right]\mod
-                            26=\left[6\hspace{2mm}16\right]\)</span></p></li>
-                        <li><p><span
-                            class="math inline">\(\left[14\hspace{2mm}5\right]\begin{bmatrix}1 &amp;
-                            2 \\ 2 &amp; 3 \end{bmatrix}=\left[24\hspace{2mm}43\right]\mod
-                            26=\left[24\hspace{2mm}17\right]\)</span></p></li>
-                        <li><p><span
-                            class="math inline">\(\left[6\hspace{2mm}14\right]\begin{bmatrix}1 &amp;
-                            2 \\ 2 &amp; 3
-                            \end{bmatrix}=\left[10\hspace{2mm}6\right]\)</span></p></li>
-                        <li><p><span
-                            class="math inline">\(\left[3\right]=\left[3\right]\)</span></p></li>
-                    </ul>
+                
+                <div class="text-center">
+                    <img src="../assets/Hill2.png" class="img-fluid" class="rounded" alt="Vale">
                 </div>
                 <p>Thus, the encrypted text is as follows</p>
                 <div class="center">
