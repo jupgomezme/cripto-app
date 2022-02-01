@@ -219,6 +219,7 @@ const getKeyChecker = (algorithm) => {
             return binaryStringChecker
         case 'rsa':
         case 'el_gamal':
+        case 'rabin':
             return numbersChecker;
         default:
             throw new Error("Wrong algorithm!")
@@ -238,6 +239,9 @@ const getTextChecker = (algorithm, action) => {
         case 'rsa':
         case 'el_gamal':
             if (action === "cipher") return stringWithSpaceChecker
+            else return numbersChecker
+        case 'rabin':
+            if (action === "cipher") return () => true;
             else return numbersChecker
         default:
             return alphabetLikeChecker
@@ -414,4 +418,6 @@ const runScript = (algorithm) => {
 }
 
 const algorithm = document.currentScript.getAttribute('algorithm')
-runScript(algorithm)
+if (algorithm !== "") {
+    runScript(algorithm)
+}

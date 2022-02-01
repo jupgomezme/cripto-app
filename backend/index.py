@@ -1,5 +1,4 @@
 import random
-import json
 
 from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
@@ -13,6 +12,7 @@ import subprocess
 from AESImage import finalAESImage
 from DES import DESEncrypt, DESDecrypt
 from DESImage import finalDESImage
+from FirmaDigitalRSA import signDocument, fullVerifySignature
 from el_gamal import ElGamalEncryption, ElGamalDecryption
 from RSA import RSAEncryption, RSADecryption
 from SDES import SDESEncryption, SDESDecryption
@@ -21,6 +21,7 @@ from TDESImage import finalTDESImage
 from displacement import cesarEncryptionWithKey, cesarDecryptionWithKey, cesarEncryptionNoKey, cesarDecryptionNoKey
 from hillImage import finalHillImage
 from permutation import permutationEncryptionWithKey, permutationDecryptionWithKey, permutationEncryptionNoKey
+from rabin import rabinEncryption, rabinDecryption
 from randomHelper import generate_random_string, generate_random_binary_string
 from substitution import sustitutionEncryptionWithKey, sustitutionEncryptionNoKey, sustitutionDecryptionWithKey
 from affine import affineEncryptionWithKey, affineEncryptionNoKey, affineDecryptionWithKey
@@ -183,6 +184,14 @@ def read_root(item: Item):
             data = [int(element) for element in data.split(",")]
             data_processed = ElGamalDecryption(data, key)
 
+    elif algorithm == "rabin":
+        if action == "cipher":
+            data_processed = rabinEncryption(data)
+        elif action == "decipher":
+            key = [int(element) for element in key.split(",")]
+            data = int(data)
+            data_processed = rabinDecryption(data, key)
+
     else:
         return {
             "message": "wrong algorithm!"
@@ -233,3 +242,20 @@ async def process_image(
         raise Exception("Wrong action!")
 
     return data_path + output_file_name
+
+
+@app.post("/doc")
+async def process_image(
+        signature: str = Form(...),
+        file: UploadFile = File(...),
+        action: str = Form(...)
+):
+    file_name = file.filename
+    save_file(file)
+
+    if action == "sign":
+        return signDocument(file_name)
+    elif action == "verify":
+        return fullVerifySignature(file_name, signature)
+    else:
+        raise Exception("Wrong action")
