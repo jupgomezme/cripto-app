@@ -221,6 +221,8 @@ const getKeyChecker = (algorithm) => {
         case 'el_gamal':
         case 'rabin':
             return numbersChecker;
+        case 'gamma_pentagonal':
+            return () => true;
         default:
             throw new Error("Wrong algorithm!")
     }
@@ -243,6 +245,9 @@ const getTextChecker = (algorithm, action) => {
         case 'rabin':
             if (action === "cipher") return () => true;
             else return numbersChecker
+        case 'gamma_pentagonal':
+            if (action === "cipher") return alphabetWithoutSpaceChecker
+            else return () => true;
         default:
             return alphabetLikeChecker
     }

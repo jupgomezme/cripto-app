@@ -1,4 +1,5 @@
 import random
+import json
 
 from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
@@ -19,6 +20,7 @@ from SDES import SDESEncryption, SDESDecryption
 from TDES import TDESEncrypt, TDESDecrypt
 from TDESImage import finalTDESImage
 from displacement import cesarEncryptionWithKey, cesarDecryptionWithKey, cesarEncryptionNoKey, cesarDecryptionNoKey
+from gammaPentagonal import encryptGammaPentagonal, decryptGammaPentagonal
 from hillImage import finalHillImage
 from permutation import permutationEncryptionWithKey, permutationDecryptionWithKey, permutationEncryptionNoKey
 from rabin import rabinEncryption, rabinDecryption
@@ -191,6 +193,13 @@ def read_root(item: Item):
             key = [int(element) for element in key.split(",")]
             data = int(data)
             data_processed = rabinDecryption(data, key)
+
+    elif algorithm == "gamma_pentagonal":
+        if action == "cipher":
+            data_processed = encryptGammaPentagonal(data)
+        elif action == "decipher":
+            key = json.loads(key)
+            data_processed = decryptGammaPentagonal(data, key)
 
     else:
         return {
